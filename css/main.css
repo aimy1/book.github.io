@@ -1278,3 +1278,10 @@ ol {
 padding-left: 20px;
 }
 }
+.datetime {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #444;
+  font-family: "Courier New", monospace;
+  transition: all 0.3s ease;
+}

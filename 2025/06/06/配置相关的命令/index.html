@@ -251,6 +251,25 @@
   ❤️ 感谢你的访问，愿你每天都有好心情！☕
 </p>
 
+<script>
+  function updateDateTime() {
+    const now = new Date();
+    const days = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const date = now.getDate().toString().padStart(2, '0');
+    const day = days[now.getDay()];
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    const formatted = `${year}年${month}月${date}日 ${day} ${hours}:${minutes}:${seconds}`;
+    document.getElementById('datetime-display').textContent = formatted;
+  }
+
+  setInterval(updateDateTime, 1000);
+  updateDateTime(); // 初始化调用
+</script>
 
         </div>
         
