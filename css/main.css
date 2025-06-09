@@ -1,61 +1,127 @@
-#archives {
-margin: auto;
-margin-top: 100px;
-padding: 20px;
+.article {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 860px;
+  font-family: "Segoe UI", "Noto Sans SC", sans-serif;
+  transition: all 0.3s ease-in-out;
 }
-#archives .categories-tags {
-margin: auto;
-margin-bottom: 50px;
-max-width: 900px;
-text-align: center;
-width: 100%;
+
+.article:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
 }
-#archives .categories-tags span {
-display: inline-block;
-margin: 10px;
+
+.article h1 {
+  font-size: 2.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #222;
 }
-#archives .categories-tags span .icon {
-color: #fff;
-margin-left: 0;
-margin-right: 10px;
+
+.article .info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #666;
+  background: #f8f8f8;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
 }
+
+.article .info span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.article .info .icon i {
+  color: #888;
+  font-size: 1rem;
+}
+
+.article .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.article .tag a {
+  background: #e6f0ff;
+  color: #007acc !important;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.article .tag a:hover {
+  background: #d0eaff;
+  color: #005fa3 !important;
+}
+
+.article .content {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.8;
+  margin-top: 1.5rem;
+}
+
+.article .content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.article #crypto {
+  margin-top: 1.5rem;
+  padding: 0.7rem;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+#comment {
+  margin-top: 2.5rem;
+  background: #fafafa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/*  Archives 页面：分类 / 标签按钮 —— 白色风格  */
 #archives .categories-tags span a {
-border: #ffffff80 1px solid;
-border-radius: 10px;
-color: #fff;
-padding: 10px 15px;
-transition: background 0.25s, border 0.25s, color 0.25s;
+  display: inline-block;
+  background-color: #fff;      /* 白底 */
+  color: #333;                 /* 深灰文字 */
+  border: 1px solid #ddd;      /* 浅灰边框 */
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);  /* 默认无阴影 */
 }
+
 #archives .categories-tags span a:hover {
-background: #fff !important;
-border: #a5c2f5 1px solid;
-color: #5c6b72;
+  background-color: #f0f0f0;   /* 悬停浅灰底 */
+  color: #000;                 /* 字体更黑 */
+  border-color: #bbb;          /* 边框稍深 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+  transform: translateY(-2px); /* 微上浮动效 */
 }
-#archives .category,
-#archives .tags .tag,
-.article .info .category,
-.article .info .tags,
-.article .info .tags .tag {
-display: inline-block;
-margin-right: 10px;
-}
-#archives h3 {
-margin: 10px 0;
-}
-#crypto {
-margin: 50px 0;
-}
-#crypto.failure {
-border-color: #ea4a5a;
-color: #ea4a5a;
-}
-#crypto.failure:focus {
-box-shadow: 0 0 0 3px #ea4a5a4d;
-}
-#crypto.success {
-border-color: #34d058;
-color: #34d058;
-}
+
 /* 背景图建议放 body 或其他元素 */
 body {
   margin: 0;
