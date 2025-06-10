@@ -1,0 +1,650 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>别看了，快走吧。</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>AIMY</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;菜单</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>👉各个平台的VPN汇总👈</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/6/10
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <hr>
+<h1 id="常见-VPN-服务大全"><a href="#常见-VPN-服务大全" class="headerlink" title="常见 VPN 服务大全"></a>常见 VPN 服务大全</h1><h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><table>
+<thead>
+<tr>
+<th>工具名称</th>
+<th>协议支持</th>
+<th>官网 &#x2F; 项目地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V2Ray &#x2F; Xray</td>
+<td>VMess, VLESS, Trojan</td>
+<td><a target="_blank" rel="noopener" href="https://www.v2fly.org/">v2fly.org</a></td>
+<td>CLI+多客户端支持</td>
+</tr>
+<tr>
+<td>Shadowsocks</td>
+<td>SOCKS5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/shadowsocks">github.com&#x2F;shadowsocks</a></td>
+<td>轻量稳定</td>
+</tr>
+<tr>
+<td>Trojan-GFW</td>
+<td>HTTPS(TLS)</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/trojan-gfw">github.com&#x2F;trojan-gfw</a></td>
+<td>抗封锁能力强</td>
+</tr>
+<tr>
+<td>NaiveProxy</td>
+<td>HTTPS (HTTP&#x2F;3)</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/klzgrad/naiveproxy">github.com&#x2F;klzgrad&#x2F;naiveproxy</a></td>
+<td>伪装性强，使用Chrome网络堆栈</td>
+</tr>
+<tr>
+<td>Hysteria</td>
+<td>QUIC, UDP</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/apernet/hysteria">github.com&#x2F;apernet&#x2F;hysteria</a></td>
+<td>UDP协议，抗封锁优</td>
+</tr>
+<tr>
+<td>TUIC</td>
+<td>QUIC, HTTP&#x2F;3</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/EAimTY/tuic">github.com&#x2F;EAimTY&#x2F;tuic</a></td>
+<td>低延迟</td>
+</tr>
+<tr>
+<td>Brook</td>
+<td>自定义协议</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/txthinking/brook">github.com&#x2F;txthinking&#x2F;brook</a></td>
+<td>快速部署</td>
+</tr>
+<tr>
+<td>Sing-box</td>
+<td>多协议</td>
+<td><a target="_blank" rel="noopener" href="https://sing-box.sagernet.org/">sing-box.sagernet.org</a></td>
+<td>新兴替代方案</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><table>
+<thead>
+<tr>
+<th>工具名称</th>
+<th>协议支持</th>
+<th>官网 &#x2F; 项目地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V2RayNG (客户端)</td>
+<td>VMess, VLESS, Trojan</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/2dust/v2rayNG">v2rayng.org</a></td>
+<td>主流安卓客户端</td>
+</tr>
+<tr>
+<td>Shadowsocks</td>
+<td>SOCKS5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/shadowsocks">github.com&#x2F;shadowsocks</a></td>
+<td>多版本，轻量</td>
+</tr>
+<tr>
+<td>Trojan-Android</td>
+<td>HTTPS (TLS)</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/trojan-gfw">github.com&#x2F;trojan-gfw</a></td>
+<td>稳定，抗封</td>
+</tr>
+<tr>
+<td>NaiveProxy (第三方客户端)</td>
+<td>HTTPS (HTTP&#x2F;3)</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/klzgrad/naiveproxy">github.com&#x2F;klzgrad&#x2F;naiveproxy</a></td>
+<td>需额外客户端</td>
+</tr>
+<tr>
+<td>Hysteria</td>
+<td>QUIC, UDP</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/apernet/hysteria">github.com&#x2F;apernet&#x2F;hysteria</a></td>
+<td>UDP协议，高性能</td>
+</tr>
+<tr>
+<td>Brook</td>
+<td>自定义协议</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/txthinking/brook">github.com&#x2F;txthinking&#x2F;brook</a></td>
+<td>简单</td>
+</tr>
+<tr>
+<td>Sing-box (客户端)</td>
+<td>多协议</td>
+<td><a target="_blank" rel="noopener" href="https://sing-box.sagernet.org/">sing-box.sagernet.org</a></td>
+<td>现代多协议客户端</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><table>
+<thead>
+<tr>
+<th>工具名称</th>
+<th>协议支持</th>
+<th>发行版支持</th>
+<th>官网 &#x2F; 项目地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V2Ray &#x2F; Xray</td>
+<td>VMess, VLESS, Trojan</td>
+<td>Ubuntu&#x2F;Debian (APT), Arch (AUR), CentOS, Alpine, OpenWrt</td>
+<td><a target="_blank" rel="noopener" href="https://www.v2fly.org/">v2fly.org</a></td>
+<td>官方多平台包，社区活跃</td>
+</tr>
+<tr>
+<td>Shadowsocks</td>
+<td>SOCKS5</td>
+<td>Ubuntu&#x2F;Debian, Arch, CentOS, Alpine, OpenWrt</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/shadowsocks">github.com&#x2F;shadowsocks</a></td>
+<td>轻量，广泛支持</td>
+</tr>
+<tr>
+<td>Trojan-GFW</td>
+<td>HTTPS (TLS)</td>
+<td>Ubuntu&#x2F;Debian, Arch, CentOS, Alpine (部分)</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/trojan-gfw">github.com&#x2F;trojan-gfw</a></td>
+<td>抗封锁强</td>
+</tr>
+<tr>
+<td>NaiveProxy</td>
+<td>HTTPS (HTTP&#x2F;3)</td>
+<td>需源码编译，支持主流发行版</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/klzgrad/naiveproxy">github.com&#x2F;klzgrad&#x2F;naiveproxy</a></td>
+<td>伪装性极强</td>
+</tr>
+<tr>
+<td>Hysteria</td>
+<td>QUIC, UDP</td>
+<td>Ubuntu&#x2F;Debian, Arch, CentOS, Alpine, OpenWrt</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/apernet/hysteria">github.com&#x2F;apernet&#x2F;hysteria</a></td>
+<td>重点UDP，抗封性能好</td>
+</tr>
+<tr>
+<td>TUIC</td>
+<td>QUIC, HTTP&#x2F;3</td>
+<td>Ubuntu&#x2F;Debian, Arch, CentOS (部分), Alpine (手动)</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/EAimTY/tuic">github.com&#x2F;EAimTY&#x2F;tuic</a></td>
+<td>高性能低延迟</td>
+</tr>
+<tr>
+<td>Brook</td>
+<td>自定义协议</td>
+<td>Ubuntu&#x2F;Debian, Arch, CentOS, Alpine, OpenWrt</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/txthinking/brook">github.com&#x2F;txthinking&#x2F;brook</a></td>
+<td>轻量简单</td>
+</tr>
+<tr>
+<td>Sing-box</td>
+<td>多协议</td>
+<td>Ubuntu&#x2F;Debian, Arch, CentOS, Alpine, OpenWrt</td>
+<td><a target="_blank" rel="noopener" href="https://sing-box.sagernet.org/">sing-box.sagernet.org</a></td>
+<td>新兴多协议替代方案</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h2><table>
+<thead>
+<tr>
+<th>工具名称</th>
+<th>协议支持</th>
+<th>官网 &#x2F; 项目地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Shadowrocket</td>
+<td>多协议支持 (VMess, Shadowsocks, Trojan等)</td>
+<td><a target="_blank" rel="noopener" href="https://apps.apple.com/cn/app/shadowrocket/id932747118">apps.apple.com</a> (付费)</td>
+<td>主流代理工具</td>
+</tr>
+<tr>
+<td>Quantumult X</td>
+<td>多协议支持</td>
+<td><a target="_blank" rel="noopener" href="https://apps.apple.com/cn/app/quantumult-x/id1443988620">apps.apple.com</a> (付费)</td>
+<td>高级代理配置</td>
+</tr>
+<tr>
+<td>Kitsunebi</td>
+<td>VMess, VLESS</td>
+<td><a target="_blank" rel="noopener" href="https://kitsuapp.com/">kitsuapp.com</a></td>
+<td>轻量客户端</td>
+</tr>
+<tr>
+<td>Shadowsocks-iOS</td>
+<td>SOCKS5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-iOS">github.com&#x2F;shadowsocks</a></td>
+<td>开源免费</td>
+</tr>
+<tr>
+<td>Trojan-GFW iOS</td>
+<td>HTTPS (TLS)</td>
+<td>需配置第三方客户端</td>
+<td>需通过TestFlight安装</td>
+</tr>
+<tr>
+<td>NaiveProxy (第三方客户端)</td>
+<td>HTTPS (HTTP&#x2F;3)</td>
+<td>需配置第三方客户端</td>
+<td>较冷门</td>
+</tr>
+<tr>
+<td>Sing-box (客户端)</td>
+<td>多协议</td>
+<td><a target="_blank" rel="noopener" href="https://sing-box.sagernet.org/">sing-box.sagernet.org</a></td>
+<td>新兴多协议客户端</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><table>
+<thead>
+<tr>
+<th>工具名称</th>
+<th>协议支持</th>
+<th>官网 &#x2F; 项目地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V2Ray &#x2F; Xray</td>
+<td>VMess, VLESS, Trojan</td>
+<td><a target="_blank" rel="noopener" href="https://www.v2fly.org/">v2fly.org</a></td>
+<td>支持多客户端，命令行或 GUI</td>
+</tr>
+<tr>
+<td>Shadowsocks</td>
+<td>SOCKS5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/shadowsocks">github.com&#x2F;shadowsocks</a></td>
+<td>多客户端支持</td>
+</tr>
+<tr>
+<td>Trojan-GFW</td>
+<td>HTTPS (TLS)</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/trojan-gfw">github.com&#x2F;trojan-gfw</a></td>
+<td>抗封锁</td>
+</tr>
+<tr>
+<td>NaiveProxy</td>
+<td>HTTPS (HTTP&#x2F;3)</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/klzgrad/naiveproxy">github.com&#x2F;klzgrad&#x2F;naiveproxy</a></td>
+<td>需要较新系统</td>
+</tr>
+<tr>
+<td>Hysteria</td>
+<td>QUIC, UDP</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/apernet/hysteria">github.com&#x2F;apernet&#x2F;hysteria</a></td>
+<td>UDP协议优</td>
+</tr>
+<tr>
+<td>TUIC</td>
+<td>QUIC, HTTP&#x2F;3</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/EAimTY/tuic">github.com&#x2F;EAimTY&#x2F;tuic</a></td>
+<td>适合低延迟</td>
+</tr>
+<tr>
+<td>Brook</td>
+<td>自定义协议</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/txthinking/brook">github.com&#x2F;txthinking&#x2F;brook</a></td>
+<td>轻量简单</td>
+</tr>
+<tr>
+<td>Sing-box</td>
+<td>多协议</td>
+<td><a target="_blank" rel="noopener" href="https://sing-box.sagernet.org/">sing-box.sagernet.org</a></td>
+<td>新兴方案</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="第三方服务"><a href="#第三方服务" class="headerlink" title="第三方服务"></a>第三方服务</h2><table>
+<thead>
+<tr>
+<th>VPN 名称</th>
+<th>类型</th>
+<th>免费版</th>
+<th>支持平台</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://nordvpn.com/">NordVPN</a></td>
+<td>商业VPN</td>
+<td>否</td>
+<td>Windows, macOS, Linux, Android, iOS</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.expressvpn.com/">ExpressVPN</a></td>
+<td>商业VPN</td>
+<td>否</td>
+<td>全平台</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://surfshark.com/">Surfshark</a></td>
+<td>商业VPN</td>
+<td>否</td>
+<td>全平台</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.cyberghostvpn.com/">CyberGhost</a></td>
+<td>商业VPN</td>
+<td>否</td>
+<td>全平台</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://protonvpn.com/">ProtonVPN</a></td>
+<td>商业+免费</td>
+<td>是</td>
+<td>全平台</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://windscribe.com/">Windscribe</a></td>
+<td>商业+免费</td>
+<td>是</td>
+<td>全平台</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.tunnelbear.com/">TunnelBear</a></td>
+<td>商业+免费</td>
+<td>是</td>
+<td>全平台</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://atlasvpn.com/">AtlasVPN</a></td>
+<td>商业+免费</td>
+<td>是</td>
+<td>Windows, Android, iOS</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.privateinternetaccess.com/">Private Internet Access</a></td>
+<td>商业VPN</td>
+<td>否</td>
+<td>全平台</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://mullvad.net/">Mullvad</a></td>
+<td>商业VPN</td>
+<td>否</td>
+<td>全平台</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://hide.me/">Hide.me</a></td>
+<td>商业+免费</td>
+<td>是</td>
+<td>全平台</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.hotspotshield.com/">Hotspot Shield</a></td>
+<td>商业+免费</td>
+<td>是</td>
+<td>全平台</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://privadovpn.com/">PrivadoVPN</a></td>
+<td>商业+免费</td>
+<td>是</td>
+<td>Windows, macOS, Android, iOS</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://www.betternet.co/">Betternet</a></td>
+<td>商业+免费</td>
+<td>是</td>
+<td>Windows, iOS, Android</td>
+</tr>
+</tbody></table>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+<div id="card-style">
+  <div id="card-div">
+    <div class="avatar">
+      <img src="/images/avatar.jpg" alt="avatar" />
+    </div>
+    <div class="name">aimy</div>
+    <div class="description">比较懒，写的不详细</div>
+
+    
+
+    
+    <div class="friend-links">
+      <a href="https://google.com" target="_blank">Google</a>
+      <a href="https://distrowatch.com/" target="_blank">Linux 排名</a>
+      <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>
+      <a href="https://www.coolexe.com/" target="_blank">Windows滚去这里 👋</a>
+      <a href="https://gemini.google.com/app" target="_blank">Gemini</a>
+      <a href="https://www.kaliorg.com/" target="_blank">Kali中文论坛</a>
+    </div>
+    
+  </div>
+</div>
+
+            <footer id="footer">
+  <div id="footer-wrap">
+    <div class="footer-row">
+      <div class="footer-left">
+        <p>
+           &copy; 2022 - 2025 &commat;aimy 
+          <span id="footer-icon">
+            <i class="fa-solid fa-font-awesome fa-fw"></i>
+          </span>
+        </p>
+        
+      </div>
+      <div class="footer-right">
+        <p>🛠️ Based on <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> &amp; 
+        <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX</a></p>
+        <p class="footer-animated">
+  ❤️ 感谢你的访问，愿你每天都有好心情！☕
+</p>
+
+<script>
+  function updateDateTime() {
+    const now = new Date();
+    const days = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const date = now.getDate().toString().padStart(2, '0');
+    const day = days[now.getDay()];
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    const formatted = `${year}年${month}月${date}日 ${day} ${hours}:${minutes}:${seconds}`;
+    document.getElementById('datetime-display').textContent = formatted;
+  }
+
+  setInterval(updateDateTime, 1000);
+  updateDateTime(); // 初始化调用
+</script>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
