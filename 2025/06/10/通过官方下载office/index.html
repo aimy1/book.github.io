@@ -42,6 +42,10 @@
 
 
 
+
+
+
+
 <link rel="stylesheet" href="/css/main.css" />
 
 <meta name="generator" content="Hexo 7.3.0"></head>
@@ -150,82 +154,62 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
+            <div class="article">
+    <div>
+        <h1>通过官方下载office</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/6/10
+        </span>
         
-        <div class="timeline" data-title="配置相关的命令（下面相对复杂，有更简单的）">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2025/6/6</div>
-                <a href="/2025/06/06/%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4/">
-                    <h3>配置相关的命令（下面相对复杂，有更简单的）</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="hexo的相关设置（仅参考）">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2025/6/9</div>
-                <a href="/2025/06/09/hexo%E7%9A%84%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE%EF%BC%88%E4%BB%85%E5%8F%82%E8%80%83%EF%BC%89/">
-                    <h3>hexo的相关设置（仅参考）</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="一些关于暗网的基本东西（新世界的前提）">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2025/6/9</div>
-                <a href="/2025/06/09/%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8E%E6%9A%97%E7%BD%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%B8%9C%E8%A5%BF%EF%BC%88%E6%96%B0%E4%B8%96%E7%95%8C%E7%9A%84%E5%89%8D%E6%8F%90%EF%BC%89/">
-                    <h3>一些关于暗网的基本东西（新世界的前提）</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="manjaro入门">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2025/6/10</div>
-                <a href="/2025/06/10/manjaro%E5%85%A5%E9%97%A8/">
-                    <h3>manjaro入门</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="通过官方下载office">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2025/6/10</div>
-                <a href="/2025/06/10/%E9%80%9A%E8%BF%87%E5%AE%98%E6%96%B9%E4%B8%8B%E8%BD%BDoffice/">
-                    <h3>通过官方下载office</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
         
     </div>
+    
+    <div class="content" v-pre>
+        <hr>
+<p>1.office 软件部署工具：<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/download/details.aspx?id=49117">https://www.microsoft.com/en-us/download/details.aspx?id=49117</a></p>
+<p>2.office 版本自定义工具：<a target="_blank" rel="noopener" href="https://config.office.com/deploymentsettings">https://config.office.com/deploymentsettings</a></p>
+<p>3.基于KMS的 GVLK：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/deployoffice/vlactivation/gvlks">https://learn.microsoft.com/zh-cn/deployoffice/vlactivation/gvlks</a></p>
+<h2 id="然后以管理员身份运行CMD-进入命令终端"><a href="#然后以管理员身份运行CMD-进入命令终端" class="headerlink" title="然后以管理员身份运行CMD 进入命令终端"></a>然后以管理员身份运行CMD 进入命令终端</h2><h2 id="下载命令："><a href="#下载命令：" class="headerlink" title="下载命令："></a>下载命令：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setup /download config.xml</span><br></pre></td></tr></table></figure>
+<h2 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令:"></a>安装命令:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setup /configure config.xml</span><br></pre></td></tr></table></figure>
+
+<h2 id="最后启动命令"><a href="#最后启动命令" class="headerlink" title="最后启动命令:"></a>最后启动命令:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Program Files\Microsoft Office\Office16</span><br><span class="line">cscript ospp.vbs /sethst:kms.03k.org </span><br><span class="line">cscript ospp.vbs /act</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意：如果你安装的是32位版本，那么启动命令第一个要改成：cd-C-Program-Files-x86-Microsoft-Office-Office16"><a href="#注意：如果你安装的是32位版本，那么启动命令第一个要改成：cd-C-Program-Files-x86-Microsoft-Office-Office16" class="headerlink" title="注意：如果你安装的是32位版本，那么启动命令第一个要改成：cd C:\Program Files (x86)\Microsoft Office\Office16"></a>注意：如果你安装的是32位版本，那么启动命令第一个要改成：cd C:\Program Files (x86)\Microsoft Office\Office16</h2>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+<div id="card-style">
+  <div id="card-div">
+    <div class="avatar">
+      <img src="/images/avatar.jpg" alt="avatar" />
+    </div>
+    <div class="name">aimy</div>
+    <div class="description">比较懒，写的不详细</div>
+
+    
+
+    
+    <div class="friend-links">
+      <a href="https://google.com" target="_blank">Google</a>
+      <a href="https://distrowatch.com/" target="_blank">Linux 排名</a>
+      <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>
+      <a href="https://www.coolexe.com/" target="_blank">Windows滚去这里 👋</a>
+      <a href="https://gemini.google.com/app" target="_blank">Gemini</a>
+      <a href="https://www.kaliorg.com/" target="_blank">Kali中文论坛</a>
+    </div>
+    
+  </div>
 </div>
 
             <footer id="footer">
@@ -277,6 +261,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
