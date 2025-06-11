@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>别看了，快走吧。</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>AIMY</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;菜单</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>🐭手机上安装 Linux(手机变电脑)🦢</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/6/11
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <hr>
+<h2 id="在手机上安装Linux，最常见、最方便的方法是通过Termux-proot。它不需要root权限，也不会破坏安卓系统-你可以在安卓手机上完整运行Ubuntu、Debian、Arch等Linux系统。"><a href="#在手机上安装Linux，最常见、最方便的方法是通过Termux-proot。它不需要root权限，也不会破坏安卓系统-你可以在安卓手机上完整运行Ubuntu、Debian、Arch等Linux系统。" class="headerlink" title="在手机上安装Linux，最常见、最方便的方法是通过Termux + proot。它不需要root权限，也不会破坏安卓系统.你可以在安卓手机上完整运行Ubuntu、Debian、Arch等Linux系统。"></a>在手机上安装Linux，最常见、最方便的方法是通过Termux + proot。它不需要root权限，也不会破坏安卓系统.你可以在安卓手机上完整运行Ubuntu、Debian、Arch等Linux系统。</h2><h2 id="新手就别试了（推荐去用集成的软件）"><a href="#新手就别试了（推荐去用集成的软件）" class="headerlink" title="新手就别试了（推荐去用集成的软件）"></a>新手就别试了（推荐去用集成的软件）</h2><p>下面是对在手机上通过 Termux + proot 技术运行 Linux 的详细介绍，适合初学者和开发者理解背后的原理与实际用途。</p>
+<ul>
+<li>技术核心原理<br>Termux 是一个安卓上的终端模拟器和类 Linux 环境。<br>它允许你在 Android 上运行标准 Linux 工具，例如：bash, vim, gcc, python, ssh 等。<br>内置包管理器（pkg，类似于 apt）。<br>📌 但 Termux 自身不是完整的 Linux 发行版，这就需要用到下一位主角——proot。<br>proot 是一个用户空间的工具，模拟 chroot 环境（即切换根目录），让你在一个文件夹中“伪装成一个 Linux 系统”运行。<br>它不需要 root 权限，但可以“假装”成你换了整个系统。<br>它还能模拟某些系统调用（如 mount、link、execve 等）。<br>📌 proot 类似于一个“虚拟隔离沙箱”，在 Android 上模拟一个标准的 Linux 文件系统（rootfs）。</li>
+</ul>
+<h2 id="简化安装"><a href="#简化安装" class="headerlink" title="简化安装"></a>简化安装</h2><p>proot-distro：封装简化安装过程<br>proot-distro 是一个辅助脚本工具，自动化了 proot 配置与 rootfs 下载。<br>一行命令就能安装 Ubuntu、Debian、Arch 等发行版。</p>
+<h2 id="使用Termux-proot你可以-在Android手机上运行完整的Linux系统-学习命令行、包管理、开发编程等-不需要-Root，几乎适用于所有设备-这是一种安全、轻便又强大的Linux模拟方式"><a href="#使用Termux-proot你可以-在Android手机上运行完整的Linux系统-学习命令行、包管理、开发编程等-不需要-Root，几乎适用于所有设备-这是一种安全、轻便又强大的Linux模拟方式" class="headerlink" title="使用Termux+proot你可以:在Android手机上运行完整的Linux系统.学习命令行、包管理、开发编程等,不需要 Root，几乎适用于所有设备,这是一种安全、轻便又强大的Linux模拟方式"></a>使用Termux+proot你可以:在Android手机上运行完整的Linux系统.学习命令行、包管理、开发编程等,不需要 Root，几乎适用于所有设备,这是一种安全、轻便又强大的Linux模拟方式</h2><hr>
+<h1 id="✅-方法：使用-Termux-proot-在手机上安装-Linux（无需-root）"><a href="#✅-方法：使用-Termux-proot-在手机上安装-Linux（无需-root）" class="headerlink" title="✅ 方法：使用 Termux + proot 在手机上安装 Linux（无需 root）"></a>✅ 方法：使用 Termux + proot 在手机上安装 Linux（无需 root）</h1><p>步骤 1：安装 Termux</p>
+<ul>
+<li>不要从 Play 商店安装，它的版本过旧。<br>推荐去 F-Droid 或 Termux 官方 GitHub 下载 APK：<br>GitHub 页面：<a target="_blank" rel="noopener" href="https://github.com/termux/termux-app">https://github.com/termux/termux-app</a></li>
+</ul>
+<p>步骤 2：更新并安装 proot-distro<br>打开 Termux 后输入以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pkg update</span><br><span class="line">pkg upgrade</span><br><span class="line">pkg install proot-distro</span><br><span class="line"></span><br><span class="line">pkg update &amp;&amp; pkg upgrade -y</span><br><span class="line">pkg install proot-distro git wget -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>步骤 3：安装一个 Linux 发行版（以 Ubuntu 为例）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proot-distro install ubuntu</span><br></pre></td></tr></table></figure>
+<p>安装完成后运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proot-distro login ubuntu</span><br></pre></td></tr></table></figure>
+<p>现在你就进入了 Ubuntu 系统的 shell，像这样(默认是root用户)：root@localhost:~#</p>
+<h2 id="常见指令"><a href="#常见指令" class="headerlink" title="常见指令"></a>常见指令</h2><p>查看支持的 Linux 版本：proot-distro list<br>安装其他系统（如 Debian）：proot-distro install debian<br>登录系统：proot-distro login debian<br>退出 Linux：exit</p>
+<h2 id="补充建议"><a href="#补充建议" class="headerlink" title="补充建议"></a>补充建议</h2><p>可以安装 vim, gcc, python, apt 等等工具：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install vim python3</span><br></pre></td></tr></table></figure>
+
+<h2 id="⚠️-注意事项"><a href="#⚠️-注意事项" class="headerlink" title="⚠️ 注意事项"></a>⚠️ 注意事项</h2><p>不能运行图形界面（除非你配置VNC，后面说怎么配置）<br>不支持所有系统调用（但大多数CLI软件都能正常使用）<br>推荐给开发者、学习Linux、写脚本等用途</p>
+<h1 id="配置桌面（更推荐LXQT，会配置无所谓）"><a href="#配置桌面（更推荐LXQT，会配置无所谓）" class="headerlink" title="配置桌面（更推荐LXQT，会配置无所谓）"></a>配置桌面（更推荐LXQT，会配置无所谓）</h1><h2 id="安装-Xfce-桌面环境-VNC-Server"><a href="#安装-Xfce-桌面环境-VNC-Server" class="headerlink" title="安装 Xfce 桌面环境 + VNC Server"></a>安装 Xfce 桌面环境 + VNC Server</h2><ul>
+<li>在 Ubuntu 环境下执行以下命令（一次性复制粘贴）：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt install xfce4 xfce4-goodies tightvncserver -y</span><br></pre></td></tr></table></figure>
+<h2 id="配置-VNC-Server"><a href="#配置-VNC-Server" class="headerlink" title="配置 VNC Server"></a>配置 VNC Server</h2><p>初始化 VNC 密码（第一次运行）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver :1</span><br></pre></td></tr></table></figure>
+<p>系统会提示你设置密码（建议设置6-8位，不能太短）。它还会创建配置文件。</p>
+<h2 id="然后停止服务器："><a href="#然后停止服务器：" class="headerlink" title="然后停止服务器："></a>然后停止服务器：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -<span class="built_in">kill</span> :1</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建-Xfce-启动脚本："><a href="#创建-Xfce-启动脚本：" class="headerlink" title="创建 Xfce 启动脚本："></a>创建 Xfce 启动脚本：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;#!/bin/bash</span></span><br><span class="line"><span class="string">xrdb $HOME/.Xresources</span></span><br><span class="line"><span class="string">startxfce4 &amp;&#x27;</span> &gt; ~/.vnc/xstartup</span><br><span class="line"></span><br><span class="line"><span class="built_in">chmod</span> +x ~/.vnc/xstartup</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动图形界面服务"><a href="#启动图形界面服务" class="headerlink" title="启动图形界面服务"></a>启动图形界面服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver :1</span><br></pre></td></tr></table></figure>
+<h2 id="手机上安装-VNC-Viewer-客户端"><a href="#手机上安装-VNC-Viewer-客户端" class="headerlink" title="手机上安装 VNC Viewer 客户端"></a>手机上安装 VNC Viewer 客户端</h2><p>从 Google Play 或酷安下载 VNC Viewer<br>添加连接：<br>地址：127.0.0.1:5901<br>名称：Ubuntu Desktop<br>点击连接，输入你设置的密码，即可看到 Ubuntu 桌面！</p>
+<h2 id="退出桌面：直接关闭-VNC-Viewer-应用即可"><a href="#退出桌面：直接关闭-VNC-Viewer-应用即可" class="headerlink" title="退出桌面：直接关闭 VNC Viewer 应用即可"></a>退出桌面：直接关闭 VNC Viewer 应用即可</h2><p>停止服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vncserver -<span class="built_in">kill</span> :1</span><br></pre></td></tr></table></figure>
+
+<h2 id="下次重新登录-Ubuntu-后启动-VNC："><a href="#下次重新登录-Ubuntu-后启动-VNC：" class="headerlink" title="下次重新登录 Ubuntu 后启动 VNC："></a>下次重新登录 Ubuntu 后启动 VNC：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">proot-distro login ubuntu</span><br><span class="line">vncserver :1</span><br></pre></td></tr></table></figure>
+<h1 id="可选增强（进阶玩法）"><a href="#可选增强（进阶玩法）" class="headerlink" title="可选增强（进阶玩法）"></a>可选增强（进阶玩法）</h1><h2 id="安装中文输入法（不只要这一个中文包）："><a href="#安装中文输入法（不只要这一个中文包）：" class="headerlink" title="安装中文输入法（不只要这一个中文包）："></a>安装中文输入法（不只要这一个中文包）：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install fcitx fcitx-googlepinyin</span><br></pre></td></tr></table></figure>
+<h2 id="安装浏览器："><a href="#安装浏览器：" class="headerlink" title="安装浏览器："></a>安装浏览器：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install firefox</span><br></pre></td></tr></table></figure>
+<h2 id="安装-Python-开发环境："><a href="#安装-Python-开发环境：" class="headerlink" title="安装 Python 开发环境："></a>安装 Python 开发环境：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install python3 pip</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+<div id="card-style">
+  <div id="card-div">
+    <div class="card-border"></div>
+    <div class="card-content">
+      <div class="avatar">
+        <img src="/images/avatar.jpg" alt="avatar" />
+      </div>
+
+      <div class="name">aimy</div>
+
+      <div class="description">比较懒，写的不详细</div>
+
+ <div class="article-count">
+  文章数量：9
+</div>
+      <div class="datetime" id="datetime-display">加载中...</div>
+
+      
+
+      
+      <div class="friend-links">
+        ——👇常用
+        <a href="https://google.com" target="_blank">Google</a>
+        <a href="https://distrowatch.com/" target="_blank">linux排名</a>
+        ——👇AI🤖
+        <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>
+        <a href="https://gemini.google.com/app" target="_blank">Gemini</a>
+        ——👇比较实用的网站
+        <a href="https://www.coolexe.com/" target="_blank">Windows滚去这里👋</a>
+        <a href="https://www.freecodecamp.org/chinese/news/all-emojis-emoji-list-for-copy-and-paste/" target="_blank">Emoji 表情🥳</a>
+        <a href="https://www.kaliorg.com/" target="_blank">Kali中文论坛</a>
+         <a href="https://tool.mkblog.cn/logoly/#/" target="_blank">PornHub 风格 Logo 生成工具</a>
+        <a href="https://www.mc.js.cool/" target="_blank">我的世界网页版</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+            <footer id="footer">
+  <div id="footer-wrap">
+    <div class="footer-row">
+      <div class="footer-left">
+        <p>
+           &copy; 2022 - 2025 &commat;aimy 
+          <span id="footer-icon">
+            <i class="fa-solid fa-font-awesome fa-fw"></i>
+          </span>
+        </p>
+        
+      </div>
+      <div class="footer-right">
+        <p>🛠️ Based on <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> &amp; 
+        <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX</a></p>
+        <p class="footer-animated">
+  ❤️ 感谢你的访问，愿你每天都有好心情！☕
+</p>
+
+<script>
+  function updateDateTime() {
+    const now = new Date();
+    const days = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const date = now.getDate().toString().padStart(2, '0');
+    const day = days[now.getDay()];
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    const formatted = `${year}年${month}月${date}日 ${day} ${hours}:${minutes}:${seconds}`;
+    document.getElementById('datetime-display').textContent = formatted;
+  }
+
+  setInterval(updateDateTime, 1000);
+  updateDateTime(); // 初始化调用
+</script>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
