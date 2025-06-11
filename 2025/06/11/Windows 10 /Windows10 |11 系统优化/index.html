@@ -156,14 +156,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>🧄一些关于暗网的基本东西🧄</h1>
+        <h1>Windows 10 /11 系统优化</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/6/9
+            2025/6/11
         </span>
         
         
@@ -171,24 +171,27 @@
     
     <div class="content" v-pre>
         <hr>
-<h1 id="1-首先需要tor"><a href="#1-首先需要tor" class="headerlink" title="1.首先需要tor"></a>1.首先需要tor</h1><h2 id="安装Tor"><a href="#安装Tor" class="headerlink" title="安装Tor"></a>安装<a target="_blank" rel="noopener" href="https://www.torproject.org/">Tor</a></h2><h3 id="通过官方安装（不行就试试flatpak）"><a href="#通过官方安装（不行就试试flatpak）" class="headerlink" title="通过官方安装（不行就试试flatpak）"></a>通过官方安装（不行就试试flatpak）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install torbrowser-launcher</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S tor</span><br></pre></td></tr></table></figure>
-<h1 id="启用并启动-Tor-服务"><a href="#启用并启动-Tor-服务" class="headerlink" title="启用并启动 Tor 服务"></a>启用并启动 Tor 服务</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> tor</span><br><span class="line"><span class="built_in">sudo</span> systemctl start tor</span><br></pre></td></tr></table></figure>
-<h2 id="检查服务状态"><a href="#检查服务状态" class="headerlink" title="检查服务状态"></a>检查服务状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status tor</span><br></pre></td></tr></table></figure>
-<h1 id="2-连接的选择"><a href="#2-连接的选择" class="headerlink" title="2.连接的选择"></a>2.连接的选择</h1><h3 id="V2rayN-自己看着买"><a href="#V2rayN-自己看着买" class="headerlink" title="V2rayN(自己看着买)"></a><a target="_blank" rel="noopener" href="https://v2rayn.org/node/">V2rayN</a>(自己看着买)</h3><p><a target="_blank" rel="noopener" href="https://protonvpn.com/?srsltid=AfmBOorZF1Xk8oaAABjYd5pvHHF1v0n1hY38eS3tmlL2p_onyZCnYWKd">ProtonVPN</a>(最安全的)<br><a target="_blank" rel="noopener" href="https://surfshark.com/zh/deal/brand?coupon=fullsecurity&utm_campaign=21452249689&utm_content=164920616072&matchtype=b&device=c&gclid=Cj0KCQjwjJrCBhCXARIsAI5x66V-Q1gcexb8b8dow48XtAtiIakyo0u9Ff-rudab6OQunaRm9we3HHAaApAeEALw_wcB&creative=705168334280&utm_term=surfshark&utm_source=google&utm_medium=cpc&gad_source=1&gad_campaignid=21452249689&gbraid=0AAAAAC-5DEa4QDO0kRTK7swg6FsHKj1mv&rdr_refr=www.google.com">Surfshark</a>(相对便宜)</p>
-<h4 id="快连-根本不推荐：未明示公司背景和隐私政策，缺乏透明度，安全性无法保证"><a href="#快连-根本不推荐：未明示公司背景和隐私政策，缺乏透明度，安全性无法保证" class="headerlink" title="快连(根本不推荐：未明示公司背景和隐私政策，缺乏透明度，安全性无法保证)"></a><a target="_blank" rel="noopener" href="https://letsvpn.world/?hl=zh">快连</a>(根本不推荐：未明示公司背景和隐私政策，缺乏透明度，安全性无法保证)</h4><hr>
-<h1 id="3-一些安全方面的说明"><a href="#3-一些安全方面的说明" class="headerlink" title="3.一些安全方面的说明"></a>3.一些安全方面的说明</h1><p>使用tails[使用tor网络的镜像，隐藏很重要]<br>目前的推荐Trojan协议访问，条件允许可以尝试Qubes的隔离。不放心再加上虚拟机</p>
-<hr>
-<h4 id="绝对安全的方法"><a href="#绝对安全的方法" class="headerlink" title="绝对安全的方法"></a>绝对安全的方法</h4><p>我当前是通过连接Trojan协议访问<a target="_blank" rel="noopener" href="https://idx.google.com/">google的云主机</a>在上面再访问tor网络（网桥不是问题）</p>
-<hr>
-<h1 id="4-获取网桥的方法"><a href="#4-获取网桥的方法" class="headerlink" title="4.获取网桥的方法"></a>4.获取网桥的方法</h1><h3 id="官方的网站"><a href="#官方的网站" class="headerlink" title="官方的网站"></a>官方的网站</h3><p><a target="_blank" rel="noopener" href="https://bridges.torproject.org/options">获取 Tor 网桥</a></p>
-<h3 id="通过电子邮件获取网桥"><a href="#通过电子邮件获取网桥" class="headerlink" title="通过电子邮件获取网桥"></a>通过电子邮件获取网桥</h3><p>使用邮件地址向 <a href="mailto:&#98;&#x72;&#105;&#x64;&#103;&#101;&#115;&#64;&#116;&#111;&#x72;&#x70;&#x72;&#111;&#x6a;&#x65;&#x63;&#x74;&#x2e;&#x6f;&#x72;&#103;">bridges@torproject.org</a> 发送邮件</p>
-<h3 id="通过-Telegram-获取网桥"><a href="#通过-Telegram-获取网桥" class="headerlink" title="通过 Telegram 获取网桥"></a>通过 Telegram 获取网桥</h3><p>在Telegram上@GetBridgesBot</p>
-<h1 style="text-align: center; color: crimson;">
-  🤬想要暗网的地址邮箱找我🤬
-</h1>
-
+<h1 id="系统开启卓越性能的方法-代码"><a href="#系统开启卓越性能的方法-代码" class="headerlink" title="系统开启卓越性能的方法+代码"></a>系统开启卓越性能的方法+代码</h1><p>首先在搜索栏里找到：Windows PowerShell</p>
+<p>找到后以管理员权限打开它</p>
+<p>然后输入以下代码回车确认即可！</p>
+<p>Powershell命令代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61</span><br></pre></td></tr></table></figure>
+<p>然后在控制面板&gt;硬件和声音&gt;电源选项&gt;选择电源计划。去选择[卓越性能]</p>
+<h1 id="开启游戏模式"><a href="#开启游戏模式" class="headerlink" title="开启游戏模式"></a>开启游戏模式</h1><p>在设置中选择[游戏模式]</p>
+<h2 id="有独显可以把-窗口化游戏-高级图像中-硬件加速GPU计划-优化打开"><a href="#有独显可以把-窗口化游戏-高级图像中-硬件加速GPU计划-优化打开" class="headerlink" title="有独显可以把[窗口化游戏],高级图像中[硬件加速GPU计划]优化打开"></a>有独显可以把[窗口化游戏],高级图像中[硬件加速GPU计划]优化打开</h2><h1 id="上帝模式"><a href="#上帝模式" class="headerlink" title="上帝模式"></a>上帝模式</h1><p>在桌面新建[文件夹]将其重命名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GodMode.&#123;ED7BA470-8E54-465E-825C-99712043E01C&#125;</span><br></pre></td></tr></table></figure>
+<p>详细设置不做说明</p>
+<h1 id="关闭系统动画"><a href="#关闭系统动画" class="headerlink" title="关闭系统动画"></a>关闭系统动画</h1><p>1.系统设置&gt;系统信息&gt;高级系统设置&gt;高级</p>
+<h1 id="Wintoys优化神器"><a href="#Wintoys优化神器" class="headerlink" title="Wintoys优化神器"></a>Wintoys优化神器</h1><p>上面的都可以不做Wintoys就已经集成了<br>Wintoys 官方下载：<a target="_blank" rel="noopener" href="https://apps.microsoft.com/detail/9p8ltpgcbzxd?hl=zh-cn&gl=US">https://apps.microsoft.com/detail/9p8ltpgcbzxd?hl=zh-cn&amp;gl=US</a></p>
+<h1 id="windows必备软件"><a href="#windows必备软件" class="headerlink" title="windows必备软件"></a>windows必备软件</h1><h2 id="AnyTxt-搜索神器"><a href="#AnyTxt-搜索神器" class="headerlink" title="AnyTxt 搜索神器"></a>AnyTxt 搜索神器</h2><p>搜索本地文件，没有任何延迟，秒出结果。<br>不仅可以搜索文件名，还可以搜索到文件内容，包含word，excel，pdf，ppt，txt等文件格式。<br>还可以指定搜索格式，指定文件夹。<br>有精准、高级、正则三种模式可以选择<br>官方下载：<a target="_blank" rel="noopener" href="https://anytxt.net/download/">https://anytxt.net/download/</a></p>
+<h2 id="小狼毫输入法"><a href="#小狼毫输入法" class="headerlink" title="小狼毫输入法"></a>小狼毫输入法</h2><p>小狼毫输入法是一款非常适合繁体用户的开源软件！<br>除了微软自带的输入法以外，这款软件很值得推荐，適用於 Windows 8.1 ~ Windows 11<br>官方下载：<a target="_blank" rel="noopener" href="https://rime.im/">https://rime.im/</a></p>
+<ul>
+<li>定製輸入法<br>通過 開始菜單 » 小狼毫輸入法 訪問設定工具及常用位置。<br>用戶詞庫、配置文件位於 %AppData%\Rime，可通過菜單中的「用戶文件夾」打開。高水平玩家調教 Rime 輸入法常會用到。<br>修改詞庫、配置文件後，須「重新部署」方可生效。<br>除了常规的文字以外，它还有八股文，地球拼音，上海吴语，粤语，中古汉语等等比较有意思的输入方案。</li>
+</ul>
+<h2 id="Geek-Uninstaller-最好的软件卸载工具！"><a href="#Geek-Uninstaller-最好的软件卸载工具！" class="headerlink" title="Geek Uninstaller 最好的软件卸载工具！"></a>Geek Uninstaller 最好的软件卸载工具！</h2><p>高效清除和强制卸载<br>本机X64支持<br>易于使用的用户界面<br>卸载Windows Store应用<br>官方下载：<a target="_blank" rel="noopener" href="https://geekuninstaller.com/">https://geekuninstaller.com/</a></p>
+<h2 id="最好用的视频播放软件！"><a href="#最好用的视频播放软件！" class="headerlink" title="最好用的视频播放软件！"></a>最好用的视频播放软件！</h2><p>1，Potplay<br>官网：<a target="_blank" rel="noopener" href="https://potplayer.daum.net/">https://potplayer.daum.net</a><br>2，VLC<br>官网：<a target="_blank" rel="noopener" href="https://www.videolan.org/">https://www.videolan.org</a></p>
+<h2 id="Snipaste-高效的截图神器"><a href="#Snipaste-高效的截图神器" class="headerlink" title="Snipaste 高效的截图神器"></a>Snipaste 高效的截图神器</h2><p>这款Snipaste的截图神器，用它来截图的话非常高效！<br>支持更精准的截图模式，同时它可以将截图粘贴为浮动窗口，来进行编辑<br>也可以支持模糊处理、标注等等…..<br>官方下载：<a target="_blank" rel="noopener" href="https://www.snipaste.com/">https://www.snipaste.com/</a></p>
+<h2 id="ARC-浏览器，替代-Chrome-的-“最新爆火”-AI-浏览器"><a href="#ARC-浏览器，替代-Chrome-的-“最新爆火”-AI-浏览器" class="headerlink" title="ARC 浏览器，替代 Chrome 的 “最新爆火” AI 浏览器"></a>ARC 浏览器，替代 Chrome 的 “最新爆火” AI 浏览器</h2><p>ARC 浏览器基于 Chromium 内核，其最突出的特点是重新定义了用户交互逻辑和操作体验。它引入了如“空间”概念、竖向标签栏、快速预览、分屏功能和整合 AI 技术等一系列先进功能，与传统浏览器大相径庭。这些创新不仅赢得了众多科技爱好者的喜爱，还受到了许多科技媒体的高度评价。ARC 以其前瞻性设计重新激发了市场对浏览器技术的热情。<br>官方下载：<a target="_blank" rel="noopener" href="https://arc.net/">https://arc.net/</a></p>
 
     </div>
     
