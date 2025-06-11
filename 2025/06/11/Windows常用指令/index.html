@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>别看了，快走吧。</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>AIMY</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;菜单</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>📃Windows常用指令</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/6/11
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <hr>
+<h1 id="Windows-常用命令手册"><a href="#Windows-常用命令手册" class="headerlink" title="Windows 常用命令手册"></a>Windows 常用命令手册</h1><h2 id="Windows-简介"><a href="#Windows-简介" class="headerlink" title="Windows 简介"></a>Windows 简介</h2><p><strong>Microsoft Windows</strong> 是一个广泛使用的商业操作系统，以其用户友好的图形界面和广泛的软件兼容性著称。它适用于个人电脑、服务器、工作站和嵌入式设备，覆盖桌面、游戏、办公和企业级应用等多种场景。</p>
+<h3 id="核心特点"><a href="#核心特点" class="headerlink" title="核心特点"></a>核心特点</h3><ul>
+<li><strong>图形化界面</strong>：直观的 GUI，适合各种用户水平。</li>
+<li><strong>广泛兼容性</strong>：支持大量软件和硬件，拥有丰富的生态系统。</li>
+<li><strong>持续更新</strong>：通过 Windows Update 提供安全补丁和功能升级。</li>
+<li><strong>包管理工具</strong>：现代 Windows 系统支持 <code>winget</code>，简化软件安装。</li>
+<li><strong>企业支持</strong>：Windows Server 提供企业级功能，如 Active Directory。</li>
+<li><strong>多样化版本</strong>：包括 Windows 10、11、Windows Server 等，满足不同需求。</li>
+</ul>
+<h3 id="Windows-生态"><a href="#Windows-生态" class="headerlink" title="Windows 生态"></a>Windows 生态</h3><p>Windows 是全球最流行的桌面操作系统，拥有强大的社区和商业支持。用户可通过 Microsoft Store、winget 或手动安装软件来扩展功能。Windows Subsystem for Linux (WSL) 允许在 Windows 上运行 Linux 环境，增强了开发者的灵活性。</p>
+<hr>
+<h2 id="常用命令详解"><a href="#常用命令详解" class="headerlink" title="常用命令详解"></a>常用命令详解</h2><p>以下是 Windows 在包管理、系统管理、用户权限、网络、文件操作和服务管理方面的常用命令，包含详细说明和使用场景。命令主要在 <strong>命令提示符 (CMD)</strong> 或 <strong>PowerShell</strong> 中执行，部分命令需以管理员权限运行（右键选择“以管理员身份运行”）。</p>
+<h3 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h3><p>Windows 10&#x2F;11 引入了 <code>winget</code>，一个命令行包管理工具，类似 Linux 的包管理器。传统上，软件通过手动下载安装或 Microsoft Store 管理。</p>
+<h4 id="更新-winget-源"><a href="#更新-winget-源" class="headerlink" title="更新 winget 源"></a>更新 winget 源</h4><p>同步 winget 的软件包数据库。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winget source update</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：确保软件源是最新的。</p>
+<h4 id="升级所有软件包"><a href="#升级所有软件包" class="headerlink" title="升级所有软件包"></a>升级所有软件包</h4><p>更新通过 winget 安装的所有软件到最新版本。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winget upgrade <span class="literal">--all</span></span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：保持系统软件最新。</p>
+<h4 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h4><p>通过 winget 安装指定软件。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">winget install &lt;package_name&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">winget install Mozilla.Firefox</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：快速安装浏览器、编辑器等软件。</p>
+<h4 id="卸载软件包"><a href="#卸载软件包" class="headerlink" title="卸载软件包"></a>卸载软件包</h4><p>移除通过 winget 安装的软件。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">winget uninstall &lt;package_name&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">winget uninstall Mozilla.Firefox</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：删除不再需要的软件。</p>
+<h4 id="列出已安装软件包"><a href="#列出已安装软件包" class="headerlink" title="列出已安装软件包"></a>列出已安装软件包</h4><p>显示通过 winget 安装的软件列表。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winget list</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：检查已安装的软件。</p>
+<h4 id="搜索软件包"><a href="#搜索软件包" class="headerlink" title="搜索软件包"></a>搜索软件包</h4><p>根据关键字搜索 winget 软件源中的软件。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">winget search &lt;keyword&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">winget search python</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：查找 Python 相关的软件。</p>
+<h4 id="查看软件包信息"><a href="#查看软件包信息" class="headerlink" title="查看软件包信息"></a>查看软件包信息</h4><p>显示指定软件包的详细信息。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">winget show &lt;package_name&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">winget show VSCode</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：在安装前了解软件详情。</p>
+<h3 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h3><p>以下命令用于查看系统状态、管理硬件资源和执行基本操作。</p>
+<h4 id="查看系统版本"><a href="#查看系统版本" class="headerlink" title="查看系统版本"></a>查看系统版本</h4><p>显示 Windows 的版本信息。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systeminfo | findstr /C:<span class="string">&quot;OS Name&quot;</span> /C:<span class="string">&quot;OS Version&quot;</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">ver</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：确认系统版本以检查兼容性。</p>
+<h4 id="显示系统信息"><a href="#显示系统信息" class="headerlink" title="显示系统信息"></a>显示系统信息</h4><p>显示详细的系统信息，包括硬件和操作系统。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systeminfo</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：获取系统概况。</p>
+<h4 id="显示-CPU-信息"><a href="#显示-CPU-信息" class="headerlink" title="显示 CPU 信息"></a>显示 CPU 信息</h4><p>显示 CPU 的详细信息。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-WmiObject</span> Win32_Processor | <span class="built_in">Select-Object</span> Name, NumberOfCores, NumberOfLogicalProcessors</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：检查处理器规格。</p>
+<h4 id="查看内存使用情况"><a href="#查看内存使用情况" class="headerlink" title="查看内存使用情况"></a>查看内存使用情况</h4><p>显示内存使用情况。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-CimInstance</span> Win32_OperatingSystem | <span class="built_in">Select-Object</span> TotalVisibleMemorySize, FreePhysicalMemory</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：监控内存占用。</p>
+<h4 id="查看磁盘使用情况"><a href="#查看磁盘使用情况" class="headerlink" title="查看磁盘使用情况"></a>查看磁盘使用情况</h4><p>显示磁盘分区的使用情况。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-Disk</span></span><br><span class="line"><span class="built_in">Get-Volume</span></span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：检查磁盘空间。</p>
+<h4 id="重启系统"><a href="#重启系统" class="headerlink" title="重启系统"></a>重启系统</h4><p>安全重启系统。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Restart-Computer</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">shutdown /<span class="built_in">r</span> /t <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：应用更新或解决系统问题。</p>
+<h4 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h4><p>安全关闭系统。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Stop-Computer</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">shutdown /s /t <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：维护或下线系统。</p>
+<h4 id="检查系统启动时间"><a href="#检查系统启动时间" class="headerlink" title="检查系统启动时间"></a>检查系统启动时间</h4><p>显示系统运行时间。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net statistics workstation | find <span class="string">&quot;Statistics since&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：检查系统运行时长。</p>
+<h4 id="查看当前运行进程"><a href="#查看当前运行进程" class="headerlink" title="查看当前运行进程"></a>查看当前运行进程</h4><p>显示正在运行的进程。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-Process</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">tasklist</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：监控系统性能。</p>
+<h4 id="终止进程"><a href="#终止进程" class="headerlink" title="终止进程"></a>终止进程</h4><p>终止指定进程。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Stop-Process</span> <span class="literal">-Name</span> &lt;process_name&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Stop-Process</span> <span class="literal">-Name</span> notepad</span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">taskkill /IM notepad.exe /F</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：关闭卡死的程序。</p>
+<h3 id="用户和权限管理"><a href="#用户和权限管理" class="headerlink" title="用户和权限管理"></a>用户和权限管理</h3><p>管理用户账户和权限的常用命令。</p>
+<h4 id="添加新用户"><a href="#添加新用户" class="headerlink" title="添加新用户"></a>添加新用户</h4><p>创建新用户账户。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">New-LocalUser</span> <span class="literal">-Name</span> <span class="string">&quot;&lt;username&gt;&quot;</span> <span class="literal">-Password</span> (<span class="built_in">ConvertTo-SecureString</span> <span class="string">&quot;&lt;password&gt;&quot;</span> <span class="literal">-AsPlainText</span> <span class="literal">-Force</span>) <span class="literal">-FullName</span> <span class="string">&quot;&lt;full_name&gt;&quot;</span> <span class="literal">-Description</span> <span class="string">&quot;User account&quot;</span></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">New-LocalUser</span> <span class="literal">-Name</span> <span class="string">&quot;testuser&quot;</span> <span class="literal">-Password</span> (<span class="built_in">ConvertTo-SecureString</span> <span class="string">&quot;P@ssw0rd&quot;</span> <span class="literal">-AsPlainText</span> <span class="literal">-Force</span>) <span class="literal">-FullName</span> <span class="string">&quot;Test User&quot;</span> <span class="literal">-Description</span> <span class="string">&quot;Test account&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：为新用户创建账户。</p>
+<h4 id="设置用户密码"><a href="#设置用户密码" class="headerlink" title="设置用户密码"></a>设置用户密码</h4><p>更改用户密码。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-LocalUser</span> <span class="literal">-Name</span> <span class="string">&quot;&lt;username&gt;&quot;</span> <span class="literal">-Password</span> (<span class="built_in">ConvertTo-SecureString</span> <span class="string">&quot;&lt;new_password&gt;&quot;</span> <span class="literal">-AsPlainText</span> <span class="literal">-Force</span>)</span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">net user &lt;username&gt; &lt;new_password&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：更新用户密码。</p>
+<h4 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h4><p>删除指定用户账户。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Remove-LocalUser</span> <span class="literal">-Name</span> <span class="string">&quot;&lt;username&gt;&quot;</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">net user &lt;username&gt; /delete</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：移除不再需要的用户。</p>
+<h4 id="查看当前登录用户"><a href="#查看当前登录用户" class="headerlink" title="查看当前登录用户"></a>查看当前登录用户</h4><p>显示当前登录的用户。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：确认当前用户身份。</p>
+<h4 id="添加用户到组"><a href="#添加用户到组" class="headerlink" title="添加用户到组"></a>添加用户到组</h4><p>将用户添加到指定组（如管理员组）。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Add-LocalGroupMember</span> <span class="literal">-Group</span> <span class="string">&quot;Administrators&quot;</span> <span class="literal">-Member</span> <span class="string">&quot;&lt;username&gt;&quot;</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">net localgroup Administrators &lt;username&gt; /add</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：授予用户管理员权限。</p>
+<h4 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h4><p>更改文件或目录的权限。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">icacls <span class="string">&quot;&lt;path&gt;&quot;</span> /grant <span class="string">&quot;&lt;username&gt;:F&quot;</span></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">icacls <span class="string">&quot;C:\Files&quot;</span> /grant <span class="string">&quot;testuser:F&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：授予用户对文件的完全控制权限。</p>
+<h4 id="修改文件所有者"><a href="#修改文件所有者" class="headerlink" title="修改文件所有者"></a>修改文件所有者</h4><p>更改文件或目录的所有者。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">takeown /F <span class="string">&quot;&lt;path&gt;&quot;</span> /<span class="built_in">R</span> /D Y</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line">takeown /F <span class="string">&quot;C:\Files&quot;</span> /<span class="built_in">R</span> /D Y</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：转移文件所有权。</p>
+<h4 id="列出用户组信息"><a href="#列出用户组信息" class="headerlink" title="列出用户组信息"></a>列出用户组信息</h4><p>显示指定用户的所属组。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-LocalGroupMember</span> <span class="literal">-Group</span> <span class="string">&quot;Administrators&quot;</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">net localgroup Administrators</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：检查用户权限归属。</p>
+<h4 id="查看系统所有用户"><a href="#查看系统所有用户" class="headerlink" title="查看系统所有用户"></a>查看系统所有用户</h4><p>列出系统中所有用户账户。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-LocalUser</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">net user</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：审计用户列表。</p>
+<h3 id="网络管理"><a href="#网络管理" class="headerlink" title="网络管理"></a>网络管理</h3><p>管理网络接口和连接的常用命令。</p>
+<h4 id="查看网络接口信息"><a href="#查看网络接口信息" class="headerlink" title="查看网络接口信息"></a>查看网络接口信息</h4><p>显示网络接口的 IP 地址和状态。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-NetIPAddress</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">ipconfig</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：检查网络配置。</p>
+<h4 id="测试网络连通性"><a href="#测试网络连通性" class="headerlink" title="测试网络连通性"></a>测试网络连通性</h4><p>测试与目标主机的网络连接。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Test-Connection</span> &lt;hostname_or_IP&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Test-Connection</span> google.com</span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">ping google.com</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：验证网络连接。</p>
+<h4 id="查看路由表"><a href="#查看路由表" class="headerlink" title="查看路由表"></a>查看路由表</h4><p>显示网络路由信息。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-NetRoute</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">route print</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：排查路由问题。</p>
+<h4 id="显示当前网络连接"><a href="#显示当前网络连接" class="headerlink" title="显示当前网络连接"></a>显示当前网络连接</h4><p>显示活动的网络连接和监听端口。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-NetTCPConnection</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">netstat <span class="literal">-ano</span></span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：检查服务监听的端口。</p>
+<h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><p>从指定 URL 下载文件。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Invoke-WebRequest</span> <span class="literal">-Uri</span> <span class="string">&quot;&lt;url&gt;&quot;</span> <span class="literal">-OutFile</span> <span class="string">&quot;&lt;filename&gt;&quot;</span></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Invoke-WebRequest</span> <span class="literal">-Uri</span> <span class="string">&quot;https://example.com/file.zip&quot;</span> <span class="literal">-OutFile</span> <span class="string">&quot;file.zip&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：下载安装包。</p>
+<h4 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h4><p>检查 Windows 防火墙状态。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-NetFirewallProfile</span></span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：确认防火墙是否启用。</p>
+<h4 id="启用防火墙"><a href="#启用防火墙" class="headerlink" title="启用防火墙"></a>启用防火墙</h4><p>启用 Windows 防火墙。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-NetFirewallProfile</span> <span class="literal">-Profile</span> Domain,Public,Private <span class="literal">-Enabled</span> True</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：确保系统安全。</p>
+<h4 id="添加防火墙规则"><a href="#添加防火墙规则" class="headerlink" title="添加防火墙规则"></a>添加防火墙规则</h4><p>开放指定端口以允许流量。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">New-NetFirewallRule</span> <span class="literal">-DisplayName</span> <span class="string">&quot;&lt;rule_name&gt;&quot;</span> <span class="literal">-Direction</span> Inbound <span class="literal">-Protocol</span> TCP <span class="literal">-LocalPort</span> &lt;port&gt; <span class="literal">-Action</span> Allow</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">New-NetFirewallRule</span> <span class="literal">-DisplayName</span> <span class="string">&quot;Allow HTTP&quot;</span> <span class="literal">-Direction</span> Inbound <span class="literal">-Protocol</span> TCP <span class="literal">-LocalPort</span> <span class="number">80</span> <span class="literal">-Action</span> Allow</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：为 Web 服务器开放端口。</p>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><p>管理文件和目录的常用命令。</p>
+<h4 id="列出当前目录内容"><a href="#列出当前目录内容" class="headerlink" title="列出当前目录内容"></a>列出当前目录内容</h4><p>显示当前目录的文件和目录。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-ChildItem</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line"><span class="built_in">dir</span></span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：查看文件列表。</p>
+<h4 id="显示隐藏文件"><a href="#显示隐藏文件" class="headerlink" title="显示隐藏文件"></a>显示隐藏文件</h4><p>列出包含隐藏文件的目录内容。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-ChildItem</span> <span class="literal">-Force</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line"><span class="built_in">dir</span> /a</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：检查隐藏配置文件。</p>
+<h4 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h4><p>创建新目录。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">New-Item</span> <span class="literal">-ItemType</span> Directory <span class="literal">-Path</span> <span class="string">&quot;&lt;directory&gt;&quot;</span></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">New-Item</span> <span class="literal">-ItemType</span> Directory <span class="literal">-Path</span> <span class="string">&quot;my_folder&quot;</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">mkdir my_folder</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：创建项目目录。</p>
+<h4 id="复制文件或目录"><a href="#复制文件或目录" class="headerlink" title="复制文件或目录"></a>复制文件或目录</h4><p>复制文件或目录到目标位置。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Copy-Item</span> &lt;source&gt; &lt;destination&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Copy-Item</span> document.txt C:\Backup\</span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line"><span class="built_in">copy</span> document.txt C:\Backup\</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：备份文件。</p>
+<h4 id="移动或重命名文件"><a href="#移动或重命名文件" class="headerlink" title="移动或重命名文件"></a>移动或重命名文件</h4><p>移动文件或目录，或重命名。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Move-Item</span> &lt;source&gt; &lt;destination&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Move-Item</span> document.txt new_document.txt</span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line"><span class="built_in">move</span> document.txt new_document.txt</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：重命名或移动文件。</p>
+<h4 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h4><p>删除指定文件。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Remove-Item</span> &lt;file&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Remove-Item</span> temp.txt</span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line"><span class="built_in">del</span> temp.txt</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：清理文件。</p>
+<h4 id="删除目录及其内容"><a href="#删除目录及其内容" class="headerlink" title="删除目录及其内容"></a>删除目录及其内容</h4><p>递归删除目录及其内容。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Remove-Item</span> &lt;directory&gt; <span class="literal">-Recurse</span></span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Remove-Item</span> old_folder <span class="literal">-Recurse</span></span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line"><span class="built_in">rmdir</span> old_folder /S /Q</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：删除整个目录。</p>
+<h4 id="压缩文件"><a href="#压缩文件" class="headerlink" title="压缩文件"></a>压缩文件</h4><p>将文件或目录压缩为 ZIP 格式。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Compress-Archive</span> <span class="literal">-Path</span> &lt;source&gt; <span class="literal">-DestinationPath</span> &lt;archive_name&gt;.zip</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Compress-Archive</span> <span class="literal">-Path</span> my_folder <span class="literal">-DestinationPath</span> backup.zip</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：备份目录。</p>
+<h4 id="解压缩文件"><a href="#解压缩文件" class="headerlink" title="解压缩文件"></a>解压缩文件</h4><p>解压 ZIP 格式的压缩文件。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Expand-Archive</span> <span class="literal">-Path</span> &lt;archive_name&gt;.zip <span class="literal">-DestinationPath</span> &lt;destination&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Expand-Archive</span> <span class="literal">-Path</span> backup.zip <span class="literal">-DestinationPath</span> extracted</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：提取压缩文件。</p>
+<h4 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h4><p>在指定目录中查找文件。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> &lt;directory&gt; <span class="literal">-Recurse</span> <span class="literal">-Include</span> &lt;filename&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> C:\ <span class="literal">-Recurse</span> <span class="literal">-Include</span> *.txt</span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line"><span class="built_in">dir</span> C:\*.txt /S</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：定位文件。</p>
+<h4 id="计算文件的-SHA256-校验值"><a href="#计算文件的-SHA256-校验值" class="headerlink" title="计算文件的 SHA256 校验值"></a>计算文件的 SHA256 校验值</h4><p>计算文件的 SHA256 校验和。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-FileHash</span> &lt;file&gt; <span class="literal">-Algorithm</span> SHA256</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Get-FileHash</span> file.zip <span class="literal">-Algorithm</span> SHA256</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：验证文件完整性。</p>
+<h3 id="服务管理"><a href="#服务管理" class="headerlink" title="服务管理"></a>服务管理</h3><p>管理系统服务的常用命令。</p>
+<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><p>启动指定服务。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Start-Service</span> <span class="literal">-Name</span> &lt;service_name&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Start-Service</span> <span class="literal">-Name</span> wuauserv</span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">net <span class="built_in">start</span> wuauserv</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：启动 Windows Update 服务。</p>
+<h4 id="停止服务"><a href="#停止服务" class="headerlink" title="停止服务"></a>停止服务</h4><p>停止指定服务。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Stop-Service</span> <span class="literal">-Name</span> &lt;service_name&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Stop-Service</span> <span class="literal">-Name</span> wuauserv</span><br><span class="line"><span class="comment"># 或在 CMD</span></span><br><span class="line">net stop wuauserv</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：暂停服务以进行维护。</p>
+<h4 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h4><p>重启指定服务。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Restart-Service</span> <span class="literal">-Name</span> &lt;service_name&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Restart-Service</span> <span class="literal">-Name</span> wuauserv</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：应用服务配置更改。</p>
+<h4 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h4><p>检查指定服务的运行状态。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-Service</span> <span class="literal">-Name</span> &lt;service_name&gt;</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Get-Service</span> <span class="literal">-Name</span> wuauserv</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：排查服务问题。</p>
+<h4 id="启用服务自启动"><a href="#启用服务自启动" class="headerlink" title="启用服务自启动"></a>启用服务自启动</h4><p>设置服务在系统启动时自动运行。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-Service</span> <span class="literal">-Name</span> &lt;service_name&gt; <span class="literal">-StartupType</span> Automatic</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Set-Service</span> <span class="literal">-Name</span> wuauserv <span class="literal">-StartupType</span> Automatic</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：确保关键服务开机自启。</p>
+<h4 id="禁用服务自启动"><a href="#禁用服务自启动" class="headerlink" title="禁用服务自启动"></a>禁用服务自启动</h4><p>禁止服务在系统启动时自动运行。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-Service</span> <span class="literal">-Name</span> &lt;service_name&gt; <span class="literal">-StartupType</span> Disabled</span><br><span class="line"><span class="comment"># 示例</span></span><br><span class="line"><span class="built_in">Set-Service</span> <span class="literal">-Name</span> wuauserv <span class="literal">-StartupType</span> Disabled</span><br></pre></td></tr></table></figure>
+<p><strong>场景</strong>：关闭不必要的服务。</p>
+<hr>
+<h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p>本文整理了 Windows 的常用命令，涵盖包管理、系统管理、用户权限、网络、文件操作和服务管理等方面，适合初学者和管理员快速参考。如有其他常用命令建议，欢迎在评论区补充！(๑´ڡ&#96;๑)</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+<div id="card-style">
+  <div id="card-div">
+    <div class="card-border"></div>
+    <div class="card-content">
+      <div class="avatar">
+        <img src="/images/avatar.jpg" alt="avatar" />
+      </div>
+
+      <div class="name">aimy</div>
+
+      <div class="description">比较懒，写的不详细</div>
+
+ <div class="article-count">
+  文章数量：13
+</div>
+      <div class="datetime" id="datetime-display">加载中...</div>
+
+      
+
+      
+      <div class="friend-links">
+        ——👇实用
+        <a href="https://google.com" target="_blank">Google</a>
+        <a href="https://distrowatch.com/" target="_blank">linux排名</a>
+        <a href="https://www.speedtest.net/" target="_blank">speedtest</a>
+        <a href="https://github.com/" target="_blank">github</a>
+        <a href="https://flathub.org/zh-Hans" target="_blank">flathub</a>
+        <a href="https://dash.cloudflare.com/" target="_blank">cloudflare</a>
+        <a href="https://idx.google.com/" target="_blank">Firebase Studio</a>
+        <a href="https://theporndude.com/zh" target="_blank">theporndude</a>
+        ——👇AI🤖
+        <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>
+        <a href="https://gemini.google.com/app" target="_blank">Gemini</a>
+        ——👇比较有用的网站
+        <a href="https://www.coolexe.com/" target="_blank">Windows滚去这里👋</a>
+        <a href="https://www.freecodecamp.org/chinese/news/all-emojis-emoji-list-for-copy-and-paste/" target="_blank">Emoji 表情🥳</a>
+        <a href="https://www.kaliorg.com/" target="_blank">Kali中文论坛</a>
+         <a href="https://tool.mkblog.cn/logoly/#/" target="_blank">PornHub 风格 Logo 生成工具</a>
+        <a href="https://www.mc.js.cool/" target="_blank">我的世界网页版</a>
+      </div>
+      
+    </div>
+  </div>
+
+<!-- 新增最新文章面板 -->
+<div id="latest-posts-panel" style="margin-top: 20px;">
+  <div class="card-border"></div>
+  <div class="card-content">
+    <div class="name">📚 最新文章</div>
+    <div class="description">看看最近写了什么</div>
+
+    <ul class="latest-posts-list" style="list-style:none; padding-left:0;">
+      
+        <li style="margin-bottom:8px;">
+          <a href="/2025/06/11/Windows%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
+            📃Windows常用指令
+          </a>
+          <span style="font-size:12px; color:#888; margin-left:10px;">
+            2025-06-11
+          </span>
+        </li>
+      
+        <li style="margin-bottom:8px;">
+          <a href="/2025/06/11/archlinux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
+            📘Archlinux常用指令
+          </a>
+          <span style="font-size:12px; color:#888; margin-left:10px;">
+            2025-06-11
+          </span>
+        </li>
+      
+        <li style="margin-bottom:8px;">
+          <a href="/2025/06/11/CentOS%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
+            📔CentOS常用指令
+          </a>
+          <span style="font-size:12px; color:#888; margin-left:10px;">
+            2025-06-11
+          </span>
+        </li>
+      
+        <li style="margin-bottom:8px;">
+          <a href="/2025/06/11/Debian%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
+            📕Debian常用指令
+          </a>
+          <span style="font-size:12px; color:#888; margin-left:10px;">
+            2025-06-11
+          </span>
+        </li>
+      
+        <li style="margin-bottom:8px;">
+          <a href="/2025/06/11/%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85Linux/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
+            🐭手机上安装 Linux(手机变电脑)🦢
+          </a>
+          <span style="font-size:12px; color:#888; margin-left:10px;">
+            2025-06-11
+          </span>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+</div>
+
+            <footer id="footer">
+  <div id="footer-wrap">
+    <div class="footer-row">
+      <div class="footer-left">
+        <p>
+           &copy; 2022 - 2025 &commat;aimy 
+          <span id="footer-icon">
+            <i class="fa-solid fa-font-awesome fa-fw"></i>
+          </span>
+        </p>
+        
+      </div>
+      <div class="footer-right">
+        <p>🛠️ Based on <a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a> &amp; 
+        <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX</a></p>
+        <p class="footer-animated">
+  ❤️ 感谢你的访问，愿你每天都有好心情！☕
+</p>
+
+<script>
+  function updateDateTime() {
+    const now = new Date();
+    const days = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const date = now.getDate().toString().padStart(2, '0');
+    const day = days[now.getDay()];
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    const formatted = `${year}年${month}月${date}日 ${day} ${hours}:${minutes}:${seconds}`;
+    document.getElementById('datetime-display').textContent = formatted;
+  }
+
+  setInterval(updateDateTime, 1000);
+  updateDateTime(); // 初始化调用
+</script>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
