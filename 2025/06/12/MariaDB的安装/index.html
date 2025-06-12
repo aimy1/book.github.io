@@ -156,14 +156,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>配置相关的命令（下面相对复杂，有更简单的）</h1>
+        <h1>MariaDB的安装（适用于 Arch）</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/6/6
+            2025/6/12
         </span>
         
         
@@ -171,35 +171,46 @@
     
     <div class="content" v-pre>
         <hr>
-<p>下面是一些命令照着输入就行，我是linux用户具体配置会和win有所不同。</p>
-<hr>
-<h1 id="安装依赖环境"><a href="#安装依赖环境" class="headerlink" title="安装依赖环境"></a>安装依赖环境</h1><h3 id="Node-js-和-Git"><a href="#Node-js-和-Git" class="headerlink" title="Node.js 和  Git"></a><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn">Node.js</a> 和  <a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git</a></h3><hr>
-<h2 id="安装-Hexo-CLI"><a href="#安装-Hexo-CLI" class="headerlink" title="安装 Hexo CLI"></a>安装 Hexo CLI</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="简单、直观、文档全"><a href="#简单、直观、文档全" class="headerlink" title="简单、直观、文档全"></a>简单、直观、文档全</h2><p>📦后端 &amp; 数据库（本地搭建）<br>数据库：MariaDB（比 MySQL 更轻便）<br>数据库前端管理工具：DBeaver（图形界面，像 Navicat，但免费）<br>API 服务端：Node.js + Express.js（用 JS 写，入门快）<br>🌐 前端框架（页面展示 + 数据交互）<br>框架：Vue.js 3（中文资料多，上手快）<br>样式工具：Vite + Element Plus（UI 组件库）</p>
+<h2 id="安装-MariaDB"><a href="#安装-MariaDB" class="headerlink" title="安装 MariaDB"></a>安装 MariaDB</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S mariadb</span><br><span class="line"><span class="built_in">sudo</span> mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql</span><br><span class="line"><span class="built_in">sudo</span> systemctl start mariadb</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> mariadb</span><br><span class="line"><span class="built_in">sudo</span> mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<h2 id="安装-DBeaver（图形界面）"><a href="#安装-DBeaver（图形界面）" class="headerlink" title="安装 DBeaver（图形界面）"></a>安装 DBeaver（图形界面）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S dbeaver</span><br></pre></td></tr></table></figure>
+<p>DBeaver 可以连接 MariaDB，像 Excel 表格一样管理数据，非常适合新手学习 SQL 和建表逻辑。</p>
+<h2 id="安装-Node-js-与-Express（后端-API）"><a href="#安装-Node-js-与-Express（后端-API）" class="headerlink" title="安装 Node.js 与 Express（后端 API）"></a>安装 Node.js 与 Express（后端 API）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S nodejs npm</span><br><span class="line"><span class="built_in">mkdir</span> my-api &amp;&amp; <span class="built_in">cd</span> my-api</span><br><span class="line">npm init -y</span><br><span class="line">npm install express mysql2 cors</span><br></pre></td></tr></table></figure>
+<p>创建简单的 API 服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// index.js</span><br><span class="line">const express = require(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line">const mysql = require(<span class="string">&#x27;mysql2&#x27;</span>);</span><br><span class="line">const cors = require(<span class="string">&#x27;cors&#x27;</span>);</span><br><span class="line"></span><br><span class="line">const app = express();</span><br><span class="line">app.use(cors());</span><br><span class="line">app.use(express.json());</span><br><span class="line"></span><br><span class="line">const db = mysql.createConnection(&#123;</span><br><span class="line">  host: <span class="string">&#x27;localhost&#x27;</span>,</span><br><span class="line">  user: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">  password: <span class="string">&#x27;你的数据库密码&#x27;</span>,</span><br><span class="line">  database: <span class="string">&#x27;testdb&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">&#x27;/users&#x27;</span>, (req, res) =&gt; &#123;</span><br><span class="line">  db.query(<span class="string">&#x27;SELECT * FROM users&#x27;</span>, (err, results) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="built_in">return</span> res.status(500).json(err);</span><br><span class="line">    res.json(results);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(3000, () =&gt; console.log(<span class="string">&#x27;API running on http://localhost:3000&#x27;</span>));</span><br></pre></td></tr></table></figure>
 
-<p>如遇 npm 版本过低提示：，运行命令安装最新版本(manjaro不用管)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g npm@latest</span><br></pre></td></tr></table></figure>
+<h2 id="安装-Vue-js-Element-Plus（前端）"><a href="#安装-Vue-js-Element-Plus（前端）" class="headerlink" title="安装 Vue.js + Element Plus（前端）"></a>安装 Vue.js + Element Plus（前端）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm create vite@latest my-vue-app -- --template vue</span><br><span class="line"><span class="built_in">cd</span> my-vue-app</span><br><span class="line">npm install</span><br><span class="line">npm install axios element-plus</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<p>页面调用 API 的示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- App.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;el-table :data=<span class="string">&quot;users&quot;</span> style=<span class="string">&quot;width: 100%&quot;</span>&gt;</span><br><span class="line">    &lt;el-table-column prop=<span class="string">&quot;id&quot;</span> label=<span class="string">&quot;ID&quot;</span> width=<span class="string">&quot;50&quot;</span> /&gt;</span><br><span class="line">    &lt;el-table-column prop=<span class="string">&quot;name&quot;</span> label=<span class="string">&quot;Name&quot;</span> /&gt;</span><br><span class="line">  &lt;/el-table&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref, onMounted &#125; from <span class="string">&#x27;vue&#x27;</span></span><br><span class="line">import axios from <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"></span><br><span class="line">const <span class="built_in">users</span> = ref([])</span><br><span class="line"></span><br><span class="line">onMounted(async () =&gt; &#123;</span><br><span class="line">  const res = await axios.get(<span class="string">&#x27;http://localhost:3000/users&#x27;</span>)</span><br><span class="line">  users.value = res.data</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="初始化-Hexo-项目"><a href="#初始化-Hexo-项目" class="headerlink" title="初始化 Hexo 项目"></a>初始化 Hexo 项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> hexo（建立一个叫hexo的文件）</span><br><span class="line"><span class="built_in">cd</span> hexo（进入这个文件夹下）</span><br><span class="line">hexo init（初始化）</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
-<h2 id="启动本地服务器浏览器查看效果"><a href="#启动本地服务器浏览器查看效果" class="headerlink" title="启动本地服务器浏览器查看效果"></a>启动本地服务器浏览器查看效果</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 
-<h2 id="初始化-Git-仓库并提交代码"><a href="#初始化-Git-仓库并提交代码" class="headerlink" title="初始化 Git 仓库并提交代码"></a>初始化 Git 仓库并提交代码</h2><p>先设置 Git 用户信息（存在差异）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;你的名字&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;你的邮箱&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="确认设置成功"><a href="#确认设置成功" class="headerlink" title="确认设置成功"></a>确认设置成功</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
 
-<h2 id="初始化仓库（自行配置）"><a href="#初始化仓库（自行配置）" class="headerlink" title="初始化仓库（自行配置）"></a>初始化仓库（自行配置）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;# aa&quot;</span> &gt;&gt; README.md</span><br><span class="line">git init</span><br><span class="line">git add .    [git add README.md]</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span>    [git commit -m <span class="string">&quot;Initial commit&quot;</span>]</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https://github.com/aimy1/aa.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
 
-<h2 id="推送代码到-GitHub"><a href="#推送代码到-GitHub" class="headerlink" title="推送代码到 GitHub"></a>推送代码到 GitHub</h2><p>登录 GitHub 手动创建一个新仓库<br>1st登录 GitHub，点击页面右上角的 + 按钮，选择 New repository（新建仓库）。<br>2nd在 Repository name（仓库名称）框中，填写你的仓库名称（例如：hexo）。<br>3rd在 Description（可选描述）框中，可以添加仓库的简短描述（如：“我的 Hexo 博客”）。<br>4th选择 Public（公开）或 Private（私有），通常选择 Public 让其他人也可以访问你的仓库。<br>5th其他设置可以保持默认即可，点击 Create repository（创建仓库）按钮。</p>
-<h2 id="添加远程地址并推送代码"><a href="#添加远程地址并推送代码" class="headerlink" title="添加远程地址并推送代码"></a>添加远程地址并推送代码</h2><p>创建仓库后，GitHub 会显示仓库的主页，找到并复制仓库地址，形如：<br><a target="_blank" rel="noopener" href="https://github.com/your-username/hexo.git">https://github.com/your-username/hexo.git</a><br>在终端中，执行以下命令将你的 Hexo 项目推送到 GitHub：<br>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/your-username/hexo.git">https://github.com/your-username/hexo.git</a><br>git branch -M main  # 若默认是 master，可改为 main<br>git push -u origin main<br>其中，your-username 是你的 GitHub 用户名，hexo 是你的仓库名称。<br>如果 GitHub 提示需要验证你的 GitHub 账号，可以通过输入用户名和个人访问令牌（Token）进行认证。</p>
-<h2 id="使用-Cloudflare-Pages-自动部署"><a href="#使用-Cloudflare-Pages-自动部署" class="headerlink" title="使用 Cloudflare Pages 自动部署"></a>使用 Cloudflare Pages 自动部署</h2><p>创建 Pages 项目<br>1.登陆 <a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">Cloudflare</a> 后台 → 选择 Pages<br>2.点击 创建项目<br>3.连接 GitHub，选择所有仓库或指定仓库授权<br>4.授权成功后，选择你的 Hexo 仓库开始配置</p>
-<h2 id="构建设置"><a href="#构建设置" class="headerlink" title="构建设置"></a>构建设置</h2><p>构建命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx hexo generate</span><br></pre></td></tr></table></figure>
-<p>发布目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public</span><br></pre></td></tr></table></figure>
-<p>框架预设：选 None</p>
-<h2 id="7-配置自定义域名（可选）"><a href="#7-配置自定义域名（可选）" class="headerlink" title="7. 配置自定义域名（可选）"></a>7. 配置自定义域名（可选）</h2><p>自动解析 (限定顶级域名托管于 Cloudflare)<br>1.点击 “设置自定义域名”<br>2.输入你的域名，Cloudflare 会自动生成 DNS 解析<br>3.等待几分钟，域名生效</p>
-<p>手动解析（域名未托管CF或为子域名）<br>1.选择“我将手动添加 DNS 记录”<br>2.根据提示，到域名 DNS 服务商处添加 CNAME 记录<br>3.点击“检查 DNS 记录”，等待解析生效</p>
-<h1 id="就这么多了看不懂就多去查查。"><a href="#就这么多了看不懂就多去查查。" class="headerlink" title="就这么多了看不懂就多去查查。"></a><a target="_blank" rel="noopener" href="https://hexo.io/">就这么多了看不懂就多去查查。</a></h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
     
     
