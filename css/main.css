@@ -1271,3 +1271,891 @@ padding-left: 20px;
   font-size: 0.9rem;
   text-align: center;
 }
+/* =========================================
+   High-Fidelity Dashboard Styles (完整版)
+   ========================================= */
+
+/* 1. 核心布局架构 */
+.dashboard-wrapper {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+/* 2. 通用玻璃面板 (High-End Glassmorphism) */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.02), 
+    0 12px 24px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* --- 左侧边栏组件 --- */
+.profile-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ID Card 头部背景 */
+.card-header-bg {
+  height: 80px;
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  opacity: 0.8;
+}
+
+/* 头像区域 */
+.avatar-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: -50px auto 10px;
+}
+
+.avatar-main {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 2;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: #4ade80;
+  background: #fff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 3;
+}
+
+/* 个人信息文本 */
+.id-info {
+  text-align: center;
+  padding: 15px 20px 25px;
+}
+
+.glitch-name {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 5px 0;
+  color: #2c3e50;
+}
+
+.role-chip {
+  display: inline-block;
+  background: rgba(102, 175, 239, 0.1);
+  color: #66afef;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* 元数据列表 */
+.meta-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.meta-list li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.meta-list i {
+  width: 20px;
+  text-align: center;
+  color: #999;
+}
+
+/* 社交按钮组 */
+.social-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.s-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #f7f9fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.s-btn:hover {
+  background: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.s-btn.github:hover { color: #333; }
+.s-btn.twitter:hover { color: #1da1f2; }
+.s-btn.email:hover { color: #ea4335; }
+.s-btn.steam:hover { color: #171a21; }
+
+/* 发送消息按钮 */
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #66afef, #764ba2);
+  color: #fff !important;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(102, 175, 239, 0.3);
+  transition: all 0.3s;
+}
+
+.action-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* --- 音乐播放器组件样式 --- */
+.widget-card { padding: 15px; }
+
+.music-widget {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.album-cover {
+  width: 45px;
+  height: 45px;
+  background: #333;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: transform 0.2s;
+}
+
+.widget-card:active .album-cover {
+  transform: scale(0.9); /* 点击时的按压感 */
+}
+
+.music-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.song-title { font-weight: bold; color: #333; }
+.artist-name { font-size: 0.75rem; color: #888; }
+
+/* 均衡器动画 */
+.equalizer span {
+  display: inline-block;
+  width: 3px;
+  background: #66afef;
+  margin-right: 2px;
+  animation: eq-bounce 1s infinite;
+  height: 10px;
+}
+
+.equalizer span:nth-child(2) { animation-delay: 0.2s; }
+.equalizer span:nth-child(3) { animation-delay: 0.4s; }
+
+/* 动画定义 */
+@keyframes eq-bounce { 
+  0%, 100% { height: 5px; } 
+  50% { height: 15px; } 
+}
+
+/* 暂停状态控制 (配合JS) */
+.equalizer.paused span {
+  animation-play-state: paused;
+  height: 3px !important; /* 暂停时变平 */
+  transition: height 0.3s;
+}
+
+
+/* --- 右侧主区域组件 --- */
+.main-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 顶部欢迎卡片 */
+.welcome-section {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.greet-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.wave {
+  display: inline-block;
+  animation: wave-hand 2.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-hand {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.stats-grid {
+  display: flex;
+  gap: 30px;
+}
+.stat-item { text-align: center; }
+.stat-item .count {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #66afef;
+}
+.stat-item .label {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 极客终端 (Terminal) */
+.terminal-section {
+  background: #1e1e1e !important;
+  color: #e0e0e0;
+  border: 1px solid #333;
+  font-family: 'Fira Code', monospace;
+}
+
+.terminal-header {
+  background: #2d2d2d;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.dots { display: flex; gap: 6px; margin-right: 15px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-header .title {
+  color: #999;
+  font-size: 0.8rem;
+  flex: 1;
+  text-align: center;
+}
+
+.terminal-body { padding: 20px; }
+.prompt { color: #27c93f; margin-right: 8px; }
+.output { color: #aaa; margin-bottom: 15px; display: block; }
+
+.skill-tags { margin-top: 10px; line-height: 2; }
+.tag-category { color: #f1fa8c; margin-right: 10px; }
+.tag {
+  background: #333;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-right: 6px;
+  border: 1px solid #444;
+}
+
+/* 时间轴 (Timeline) */
+.timeline-section { padding: 30px; }
+.panel-title {
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+  border-bottom: 1px dashed #ddd;
+  padding-bottom: 10px;
+}
+.timeline-box {
+  border-left: 2px solid #e0e0e0;
+  padding-left: 25px;
+  margin-left: 10px;
+}
+.tl-item { position: relative; margin-bottom: 30px; }
+.tl-dot {
+  position: absolute;
+  left: -32px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 3px solid #66afef;
+  border-radius: 50%;
+}
+.tl-date {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 5px;
+  display: block;
+}
+.tl-content h4 {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+.tl-content p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* 移动端适配 */
+@media (max-width: 860px) {
+  .dashboard-wrapper {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+  .welcome-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-col { align-items: center; }
+  .id-card, .widget-card { width: 100%; max-width: 400px; }
+}
+/* =========================================
+   Additional Modules Styles (Project & Arsenal)
+   ========================================= */
+
+/* --- 1. 项目孵化区 (Project Protocol) --- */
+.projects-section {
+  padding: 30px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 16px;
+  padding: 20px;
+  text-decoration: none !important;
+  color: #333;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  background: #fff;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.p-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.p-icon {
+  font-size: 1.5rem;
+  color: #66afef;
+}
+
+.p-link {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.project-card h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 20px 0;
+  flex-grow: 1; /* 让底部标签对齐 */
+  line-height: 1.5;
+}
+
+.p-tech {
+  display: flex;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: #888;
+  font-family: 'Fira Code', monospace;
+}
+
+/* --- 2. 武器库 (Dev Arsenal) --- */
+.arsenal-section {
+  padding: 30px;
+}
+
+.tool-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.tool-item {
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #555;
+  transition: all 0.2s;
+  cursor: help; /* 鼠标放上去显示问号/提示 */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.tool-item:hover {
+  background: #fff;
+  transform: scale(1.15);
+  color: #66afef;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* --- 3. 每日格言 (Quote Card) --- */
+.quote-card {
+  padding: 25px;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  color: #555;
+}
+
+.quote-icon {
+  font-size: 1.5rem;
+  color: #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.quote-text {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.quote-author {
+  font-size: 0.9rem;
+  color: #999;
+  font-style: normal;
+  text-align: right;
+  margin: 0;
+}
+
+/* 移动端适配补充 */
+@media (max-width: 860px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .tool-grid {
+    justify-content: center;
+  }
+}
+/* =========================================
+   Neon Tag Galaxy Styles
+   ========================================= */
+
+/* 1. 布局容器 */
+.tags-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* 2. 顶部控制栏 */
+.tags-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px 40px !important;
+  margin-bottom: 30px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #66afef 0%, #ff6ec4 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(102, 175, 239, 0.4);
+}
+
+.text-box h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.text-box p {
+  margin: 5px 0 0;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+/* 3. 搜索框样式 */
+.search-box-container {
+  position: relative;
+  width: 300px;
+  height: 50px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  z-index: 2;
+  transition: color 0.3s;
+}
+
+#tag-search-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50px;
+  padding: 0 20px 0 50px;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  border: 1px solid rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+
+#tag-search-input:focus {
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#tag-search-input:focus + .search-focus-border {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#tag-search-input:focus ~ .search-icon {
+  color: #66afef;
+}
+
+/* 4. 标签云面板 */
+.tag-cloud-panel {
+  padding: 40px !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.loading-text {
+  color: #999;
+  font-style: italic;
+  margin-top: 50px;
+}
+
+/* 5. 核心：霓虹标签胶囊 (Neon Chip) */
+.neon-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none !important;
+  color: #555;
+  font-weight: 600;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* 使用 CSS 变量来控制缩放，默认为1 */
+  transform: scale(var(--scale-factor, 1)); 
+  transform-origin: center center;
+  margin: 5px;
+}
+
+/* 悬停效果：放大、变色、发光 */
+.neon-chip:hover {
+  transform: scale(calc(var(--scale-factor, 1) * 1.1)) translateY(-5px);
+  color: #fff !important;
+  border-color: transparent;
+  z-index: 10;
+}
+
+.chip-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+
+.neon-chip:hover .chip-bg {
+  opacity: 1;
+}
+
+/* 6. 五种霓虹风格定义 */
+
+/* 蓝色系 */
+.style-blue:hover { box-shadow: 0 8px 25px rgba(102, 175, 239, 0.5); }
+.style-blue .chip-bg { background: linear-gradient(135deg, #66afef 0%, #4facfe 100%); }
+
+/* 粉色系 */
+.style-pink:hover { box-shadow: 0 8px 25px rgba(255, 110, 196, 0.5); }
+.style-pink .chip-bg { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #ff6ec4 100%); }
+
+/* 紫色系 */
+.style-purple:hover { box-shadow: 0 8px 25px rgba(161, 140, 209, 0.5); }
+.style-purple .chip-bg { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
+
+/* 绿色系 */
+.style-green:hover { box-shadow: 0 8px 25px rgba(67, 233, 123, 0.5); }
+.style-green .chip-bg { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+
+/* 橙色系 */
+.style-orange:hover { box-shadow: 0 8px 25px rgba(250, 112, 154, 0.5); }
+.style-orange .chip-bg { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .tags-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px !important;
+  }
+  .search-box-container {
+    width: 100%;
+  }
+}
+/* =========================================
+   Holographic Categories Matrix Styles
+   ========================================= */
+
+/* 1. 布局容器 */
+.categories-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* 2. 头部区域 */
+.cat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px !important;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: visible;
+}
+
+.icon-box-cat {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(161, 140, 209, 0.4);
+}
+
+.cat-decoration {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pulse-circle {
+  width: 20px;
+  height: 20px;
+  background: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(74, 222, 128, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+/* 3. 分类卡片矩阵 */
+.category-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* 4. 单个分类卡片 (Archive Box) */
+.cat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 160px;
+  padding: 25px;
+  text-decoration: none !important;
+  overflow: hidden;
+  border-left: 5px solid transparent; /* 左侧色条槽位 */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cat-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* 内容区域 */
+.cat-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 2;
+}
+
+.cat-icon-box {
+  width: 45px;
+  height: 45px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #555;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.cat-info {
+  flex: 1;
+}
+
+.cat-name {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.cat-meta {
+  font-size: 0.85rem;
+  color: #777;
+  display: block;
+  margin-top: 4px;
+}
+
+/* 背景大图标水印 */
+.cat-bg-icon {
+  position: absolute;
+  right: -20px;
+  bottom: -30px;
+  font-size: 8rem;
+  opacity: 0.05;
+  transform: rotate(-15deg);
+  transition: all 0.5s;
+  z-index: 0;
+}
+
+.cat-card:hover .cat-bg-icon {
+  opacity: 0.15;
+  transform: rotate(0deg) scale(1.1);
+  right: -10px;
+}
+
+/* 底部进度条 */
+.cat-progress {
+  width: 100%;
+  z-index: 2;
+  margin-top: auto; /* 推到底部 */
+}
+
+.progress-bar-bg {

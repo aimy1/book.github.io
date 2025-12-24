@@ -42,10 +42,6 @@
 
 
 
-
-
-
-
 <link rel="stylesheet" href="/css/main.css" />
 
 <meta name="generator" content="Hexo 7.3.0"></head>
@@ -156,46 +152,237 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>🧄一些关于暗网的基本东西🧄</h1>
+        <h1>关于我</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2025/6/9
+            2023/10/24
         </span>
         
         
     </div>
     
     <div class="content" v-pre>
-        <hr>
-<h1 id="1-首先需要tor"><a href="#1-首先需要tor" class="headerlink" title="1.首先需要tor"></a>1.首先需要tor</h1><h2 id="安装Tor"><a href="#安装Tor" class="headerlink" title="安装Tor"></a>安装<a target="_blank" rel="noopener" href="https://www.torproject.org/">Tor</a></h2><h3 id="通过官方安装（不行就试试flatpak）"><a href="#通过官方安装（不行就试试flatpak）" class="headerlink" title="通过官方安装（不行就试试flatpak）"></a>通过官方安装（不行就试试flatpak）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install torbrowser-launcher</span><br></pre></td></tr></table></figure>
+        
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S tor</span><br></pre></td></tr></table></figure>
-<h1 id="启用并启动-Tor-服务"><a href="#启用并启动-Tor-服务" class="headerlink" title="启用并启动 Tor 服务"></a>启用并启动 Tor 服务</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> tor</span><br><span class="line"><span class="built_in">sudo</span> systemctl start tor</span><br></pre></td></tr></table></figure>
-<h2 id="检查服务状态"><a href="#检查服务状态" class="headerlink" title="检查服务状态"></a>检查服务状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status tor</span><br></pre></td></tr></table></figure>
-<h1 id="2-连接的选择"><a href="#2-连接的选择" class="headerlink" title="2.连接的选择"></a>2.连接的选择</h1><h3 id="V2rayN-自己看着买"><a href="#V2rayN-自己看着买" class="headerlink" title="V2rayN(自己看着买)"></a><a target="_blank" rel="noopener" href="https://v2rayn.org/node/">V2rayN</a>(自己看着买)</h3><p><a target="_blank" rel="noopener" href="https://protonvpn.com/?srsltid=AfmBOorZF1Xk8oaAABjYd5pvHHF1v0n1hY38eS3tmlL2p_onyZCnYWKd">ProtonVPN</a>(最安全的)<br><a target="_blank" rel="noopener" href="https://surfshark.com/zh/deal/brand?coupon=fullsecurity&utm_campaign=21452249689&utm_content=164920616072&matchtype=b&device=c&gclid=Cj0KCQjwjJrCBhCXARIsAI5x66V-Q1gcexb8b8dow48XtAtiIakyo0u9Ff-rudab6OQunaRm9we3HHAaApAeEALw_wcB&creative=705168334280&utm_term=surfshark&utm_source=google&utm_medium=cpc&gad_source=1&gad_campaignid=21452249689&gbraid=0AAAAAC-5DEa4QDO0kRTK7swg6FsHKj1mv&rdr_refr=www.google.com">Surfshark</a>(相对便宜)</p>
-<h4 id="快连-根本不推荐：未明示公司背景和隐私政策，缺乏透明度，安全性无法保证"><a href="#快连-根本不推荐：未明示公司背景和隐私政策，缺乏透明度，安全性无法保证" class="headerlink" title="快连(根本不推荐：未明示公司背景和隐私政策，缺乏透明度，安全性无法保证)"></a><a target="_blank" rel="noopener" href="https://letsvpn.world/?hl=zh">快连</a>(根本不推荐：未明示公司背景和隐私政策，缺乏透明度，安全性无法保证)</h4><hr>
-<h1 id="3-一些安全方面的说明"><a href="#3-一些安全方面的说明" class="headerlink" title="3.一些安全方面的说明"></a>3.一些安全方面的说明</h1><p>使用tails[使用tor网络的镜像，隐藏很重要]<br>目前的推荐Trojan协议访问，条件允许可以尝试Qubes的隔离。不放心再加上虚拟机</p>
-<hr>
-<h4 id="绝对安全的方法"><a href="#绝对安全的方法" class="headerlink" title="绝对安全的方法"></a>绝对安全的方法</h4><p>我当前是通过连接Trojan协议访问<a target="_blank" rel="noopener" href="https://idx.google.com/">google的云主机</a>在上面再访问tor网络（网桥不是问题）</p>
-<hr>
-<h1 id="4-获取网桥的方法"><a href="#4-获取网桥的方法" class="headerlink" title="4.获取网桥的方法"></a>4.获取网桥的方法</h1><h3 id="官方的网站"><a href="#官方的网站" class="headerlink" title="官方的网站"></a>官方的网站</h3><p><a target="_blank" rel="noopener" href="https://bridges.torproject.org/options">获取 Tor 网桥</a></p>
-<h3 id="通过电子邮件获取网桥"><a href="#通过电子邮件获取网桥" class="headerlink" title="通过电子邮件获取网桥"></a>通过电子邮件获取网桥</h3><p>使用邮件地址向 <a href="mailto:&#x62;&#114;&#x69;&#100;&#103;&#101;&#x73;&#x40;&#x74;&#111;&#x72;&#x70;&#x72;&#111;&#106;&#101;&#99;&#x74;&#x2e;&#x6f;&#x72;&#103;">bridges@torproject.org</a> 发送邮件</p>
-<h3 id="通过-Telegram-获取网桥"><a href="#通过-Telegram-获取网桥" class="headerlink" title="通过 Telegram 获取网桥"></a>通过 Telegram 获取网桥</h3><p>在Telegram上@GetBridgesBot</p>
-<h1 style="text-align: center; color: crimson;">
-  🤬想要暗网的地址邮箱找我🤬
-</h1>
+<div class="dashboard-wrapper">
+    
+    <aside class="profile-col">
+        
+        <div class="id-card glass-panel">
+            <div class="card-header-bg"></div>
+            <div class="avatar-container">
+                <div class="avatar-glow"></div>
+                <img src="/images/avatar.jpg" class="avatar-main" alt="Avatar">
+            </div>
 
+            <div class="id-info">
+                <h1 class="glitch-name" data-text="Aimy">Aimy</h1>
+                <p class="role-chip">Full Stack Developer</p>
+                <ul class="meta-list">
+                    <li><i class="fa fa-map-marker-alt"></i> China</li>
+                    <li><i class="fa fa-briefcase"></i> Open to Work</li>
+                    <li><i class="fa fa-birthday-cake"></i> Oct 24th</li>
+                </ul>
+
+                <div class="social-row">
+                    <a href="https://github.com/yourname" target="_blank" class="s-btn github"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="s-btn twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="mailto:aisaniya@proton.me" class="s-btn email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="#" class="s-btn steam"><i class="fa-brands fa-steam"></i></a>
+                </div>
+                
+                <a href="#contact" class="action-btn">
+                    <span>Send Message</span>
+                    <i class="fa fa-paper-plane"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="quote-card glass-panel">
+            <div class="quote-icon"><i class="fa fa-quote-left"></i></div>
+            <p class="quote-text">Talk is cheap. Show me the code.</p>
+            <p class="quote-author">— Linus Torvalds</p>
+        </div>
+
+        <div class="widget-card glass-panel" onclick="toggleMusic()" style="cursor: pointer;" title="点击播放/暂停">
+            <div class="music-widget">
+                <audio id="bgm-player" loop>
+                    <source src="https://music.163.com/song/media/outer/url?id=1363948882.mp3" type="audio/mpeg">
+                </audio>
+                <div class="album-cover">
+                    <i id="play-icon" class="fa fa-play"></i>
+                </div>
+                <div class="music-info">
+                    <span class="song-title">Coding Mode</span>
+                    <span class="artist-name">Click to Play</span>
+                </div>
+                <div class="equalizer" id="equalizer-anim">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+    <main class="main-col">
+        
+        <section class="welcome-section glass-panel">
+            <div class="greet-box">
+                <h2>Hello! <span class="wave">👋</span></h2>
+                <p>欢迎来到我的个人介绍。这里记录技术、生活与灵感。</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="count">42</span>
+                    <span class="label">Articles</span>
+                </div>
+                <div class="stat-item">
+                    <span class="count">1.2k</span>
+                    <span class="label">Visitors</span>
+                </div>
+                <div class="stat-item">
+                    <span class="count">365</span>
+                    <span class="label">Days</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="terminal-section glass-panel">
+            <div class="terminal-header">
+                <div class="dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="title">root@aimy: ~/intro</div>
+            </div>
+            <div class="terminal-body">
+                <p><span class="prompt">$</span> whoami</p>
+                <p class="output">A passionate developer who loves to build creative tools.</p>
+                <p><span class="prompt">$</span> cat skills.txt</p>
+                <p class="output">Loading skill matrix...</p>
+                <div class="skill-tags">
+                    <span class="tag-category">Frontend:</span>
+                    <span class="tag">Vue3</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Tailwind</span>
+                    <br>
+                    <span class="tag-category">Backend:</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">MySQL</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section glass-panel">
+            <h3 class="panel-title"><i class="fa fa-project-diagram"></i> Project Protocol</h3>
+            <div class="project-grid">
+                <a href="https://github.com" target="_blank" class="project-card">
+                    <div class="p-header">
+                        <i class="fa-regular fa-folder-open p-icon"></i>
+                        <span class="p-link"><i class="fa fa-external-link-alt"></i></span>
+                    </div>
+                    <h4>Hexo-Theme-Glass</h4>
+                    <p>A high-fidelity glassmorphism theme for Hexo with cyberpunk aesthetics.</p>
+                    <div class="p-tech">
+                        <span>EJS</span><span>CSS3</span><span>JS</span>
+                    </div>
+                </a>
+                <a href="https://github.com" target="_blank" class="project-card">
+                    <div class="p-header">
+                        <i class="fa-regular fa-folder-open p-icon"></i>
+                        <span class="p-link"><i class="fa fa-external-link-alt"></i></span>
+                    </div>
+                    <h4>Auto-Deploy-Bot</h4>
+                    <p>Automated deployment script for server management using Python.</p>
+                    <div class="p-tech">
+                        <span>Python</span><span>Docker</span>
+                    </div>
+                </a>
+                 <a href="https://github.com" target="_blank" class="project-card">
+                    <div class="p-header">
+                        <i class="fa-regular fa-folder-open p-icon"></i>
+                        <span class="p-link"><i class="fa fa-external-link-alt"></i></span>
+                    </div>
+                    <h4>React-Dashboard</h4>
+                    <p>A data visualization dashboard template.</p>
+                    <div class="p-tech">
+                        <span>React</span><span>D3.js</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="arsenal-section glass-panel">
+            <h3 class="panel-title"><i class="fa fa-toolbox"></i> My Arsenal</h3>
+            <div class="tool-grid">
+                <div class="tool-item" title="VS Code"><i class="fa-solid fa-code"></i></div>
+                <div class="tool-item" title="Git"><i class="fa-brands fa-git-alt"></i></div>
+                <div class="tool-item" title="Chrome"><i class="fa-brands fa-chrome"></i></div>
+                <div class="tool-item" title="Figma"><i class="fa-brands fa-figma"></i></div>
+                <div class="tool-item" title="Terminal"><i class="fa-solid fa-terminal"></i></div>
+                <div class="tool-item" title="Node.js"><i class="fa-brands fa-node-js"></i></div>
+                <div class="tool-item" title="Ubuntu"><i class="fa-brands fa-ubuntu"></i></div>
+                <div class="tool-item" title="Coffee"><i class="fa-solid fa-mug-hot"></i></div>
+            </div>
+        </section>
+
+        <section class="timeline-section glass-panel">
+            <h3 class="panel-title"><i class="fa fa-history"></i> Update Log</h3>
+            <div class="timeline-box">
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <span class="tl-date">2025.12 - Present</span>
+                        <h4>博客全新重构</h4>
+                        <p>引入了 Glassmorphism UI，提升交互体验。</p>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <span class="tl-date">2024.06 - 2025.01</span>
+                        <h4>深入全栈开发</h4>
+                        <p>主攻 Node.js 后端架构与 Docker 容器化部署。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script>
+    var isPlaying = false;
+    function toggleMusic() {
+        var audio = document.getElementById('bgm-player');
+        var icon = document.getElementById('play-icon');
+        var eq = document.getElementById('equalizer-anim');
+        if (isPlaying) {
+            audio.pause();
+            icon.className = 'fa fa-play';
+            eq.classList.add('paused');
+        } else {
+            audio.play();
+            icon.className = 'fa fa-pause';
+            eq.classList.remove('paused');
+        }
+        isPlaying = !isPlaying;
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var eq = document.getElementById('equalizer-anim');
+        if(eq) eq.classList.add('paused');
+    });
+</script>
 
     </div>
-    
-    
-    
-    
-    
     
     
 </div>
@@ -351,12 +538,6 @@
         
     </div>
     <script src="/js/main.js"></script>
-    
-    
-
-
-
-
     
 </body>
 </html>
