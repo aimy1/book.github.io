@@ -42,6 +42,10 @@
 
 
 
+
+
+
+
 <link rel="stylesheet" href="/css/main.css" />
 
 <meta name="generator" content="Hexo 7.3.0"></head>
@@ -152,237 +156,70 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>关于我</h1>
+        <h1>code在Wayland上运行的方法</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/10/24
+            2025/12/26
         </span>
         
         
     </div>
     
     <div class="content" v-pre>
-        
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<div class="dashboard-wrapper">
-    
-    <aside class="profile-col">
-        
-        <div class="id-card glass-panel">
-            <div class="card-header-bg"></div>
-            <div class="avatar-container">
-                <div class="avatar-glow"></div>
-                <img src="/images/avatar.jpg" class="avatar-main" alt="Avatar">
-            </div>
-
-            <div class="id-info">
-                <h1 class="glitch-name" data-text="Aimy">Aimy</h1>
-                <p class="role-chip">Full Stack Developer</p>
-                <ul class="meta-list">
-                    <li><i class="fa fa-map-marker-alt"></i> China</li>
-                    <li><i class="fa fa-briefcase"></i> Open to Work</li>
-                    <li><i class="fa fa-birthday-cake"></i> Oct 24th</li>
-                </ul>
-
-                <div class="social-row">
-                    <a href="https://github.com/yourname" target="_blank" class="s-btn github"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="s-btn twitter"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="mailto:aisaniya@proton.me" class="s-btn email"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="#" class="s-btn steam"><i class="fa-brands fa-steam"></i></a>
-                </div>
-                
-                <a href="#contact" class="action-btn">
-                    <span>Send Message</span>
-                    <i class="fa fa-paper-plane"></i>
-                </a>
-            </div>
-        </div>
-        
-        <div class="quote-card glass-panel">
-            <div class="quote-icon"><i class="fa fa-quote-left"></i></div>
-            <p class="quote-text">Talk is cheap. Show me the code.</p>
-            <p class="quote-author">— Linus Torvalds</p>
-        </div>
-
-        <div class="widget-card glass-panel" onclick="toggleMusic()" style="cursor: pointer;" title="点击播放/暂停">
-            <div class="music-widget">
-                <audio id="bgm-player" loop>
-                    <source src="https://music.163.com/song/media/outer/url?id=1363948882.mp3" type="audio/mpeg">
-                </audio>
-                <div class="album-cover">
-                    <i id="play-icon" class="fa fa-play"></i>
-                </div>
-                <div class="music-info">
-                    <span class="song-title">Coding Mode</span>
-                    <span class="artist-name">Click to Play</span>
-                </div>
-                <div class="equalizer" id="equalizer-anim">
-                    <span></span><span></span><span></span><span></span>
-                </div>
-            </div>
-        </div>
-
-    </aside>
-
-    <main class="main-col">
-        
-        <section class="welcome-section glass-panel">
-            <div class="greet-box">
-                <h2>Hello! <span class="wave">👋</span></h2>
-                <p>欢迎来到我的个人介绍。这里记录技术、生活与灵感。</p>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="count">42</span>
-                    <span class="label">Articles</span>
-                </div>
-                <div class="stat-item">
-                    <span class="count">1.2k</span>
-                    <span class="label">Visitors</span>
-                </div>
-                <div class="stat-item">
-                    <span class="count">365</span>
-                    <span class="label">Days</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="terminal-section glass-panel">
-            <div class="terminal-header">
-                <div class="dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                </div>
-                <div class="title">root@aimy: ~/intro</div>
-            </div>
-            <div class="terminal-body">
-                <p><span class="prompt">$</span> whoami</p>
-                <p class="output">A passionate developer who loves to build creative tools.</p>
-                <p><span class="prompt">$</span> cat skills.txt</p>
-                <p class="output">Loading skill matrix...</p>
-                <div class="skill-tags">
-                    <span class="tag-category">Frontend:</span>
-                    <span class="tag">Vue3</span>
-                    <span class="tag">React</span>
-                    <span class="tag">Tailwind</span>
-                    <br>
-                    <span class="tag-category">Backend:</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">Docker</span>
-                    <span class="tag">MySQL</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="projects-section glass-panel">
-            <h3 class="panel-title"><i class="fa fa-project-diagram"></i> Project Protocol</h3>
-            <div class="project-grid">
-                <a href="https://github.com" target="_blank" class="project-card">
-                    <div class="p-header">
-                        <i class="fa-regular fa-folder-open p-icon"></i>
-                        <span class="p-link"><i class="fa fa-external-link-alt"></i></span>
-                    </div>
-                    <h4>Hexo-Theme-Glass</h4>
-                    <p>A high-fidelity glassmorphism theme for Hexo with cyberpunk aesthetics.</p>
-                    <div class="p-tech">
-                        <span>EJS</span><span>CSS3</span><span>JS</span>
-                    </div>
-                </a>
-                <a href="https://github.com" target="_blank" class="project-card">
-                    <div class="p-header">
-                        <i class="fa-regular fa-folder-open p-icon"></i>
-                        <span class="p-link"><i class="fa fa-external-link-alt"></i></span>
-                    </div>
-                    <h4>Auto-Deploy-Bot</h4>
-                    <p>Automated deployment script for server management using Python.</p>
-                    <div class="p-tech">
-                        <span>Python</span><span>Docker</span>
-                    </div>
-                </a>
-                 <a href="https://github.com" target="_blank" class="project-card">
-                    <div class="p-header">
-                        <i class="fa-regular fa-folder-open p-icon"></i>
-                        <span class="p-link"><i class="fa fa-external-link-alt"></i></span>
-                    </div>
-                    <h4>React-Dashboard</h4>
-                    <p>A data visualization dashboard template.</p>
-                    <div class="p-tech">
-                        <span>React</span><span>D3.js</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section class="arsenal-section glass-panel">
-            <h3 class="panel-title"><i class="fa fa-toolbox"></i> My Arsenal</h3>
-            <div class="tool-grid">
-                <div class="tool-item" title="VS Code"><i class="fa-solid fa-code"></i></div>
-                <div class="tool-item" title="Git"><i class="fa-brands fa-git-alt"></i></div>
-                <div class="tool-item" title="Chrome"><i class="fa-brands fa-chrome"></i></div>
-                <div class="tool-item" title="Figma"><i class="fa-brands fa-figma"></i></div>
-                <div class="tool-item" title="Terminal"><i class="fa-solid fa-terminal"></i></div>
-                <div class="tool-item" title="Node.js"><i class="fa-brands fa-node-js"></i></div>
-                <div class="tool-item" title="Ubuntu"><i class="fa-brands fa-ubuntu"></i></div>
-                <div class="tool-item" title="Coffee"><i class="fa-solid fa-mug-hot"></i></div>
-            </div>
-        </section>
-
-        <section class="timeline-section glass-panel">
-            <h3 class="panel-title"><i class="fa fa-history"></i> Update Log</h3>
-            <div class="timeline-box">
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <span class="tl-date">2025.12 - Present</span>
-                        <h4>博客全新重构</h4>
-                        <p>引入了 Glassmorphism UI，提升交互体验。</p>
-                    </div>
-                </div>
-                <div class="tl-item">
-                    <div class="tl-dot"></div>
-                    <div class="tl-content">
-                        <span class="tl-date">2024.06 - 2025.01</span>
-                        <h4>深入全栈开发</h4>
-                        <p>主攻 Node.js 后端架构与 Docker 容器化部署。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-</div>
-
-<script>
-    var isPlaying = false;
-    function toggleMusic() {
-        var audio = document.getElementById('bgm-player');
-        var icon = document.getElementById('play-icon');
-        var eq = document.getElementById('equalizer-anim');
-        if (isPlaying) {
-            audio.pause();
-            icon.className = 'fa fa-play';
-            eq.classList.add('paused');
-        } else {
-            audio.play();
-            icon.className = 'fa fa-pause';
-            eq.classList.remove('paused');
-        }
-        isPlaying = !isPlaying;
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-        var eq = document.getElementById('equalizer-anim');
-        if(eq) eq.classList.add('paused');
-    });
-</script>
+        <hr>
+<h1 id="这份指南非常详尽！我已经帮你将其转换成了标准的-Markdown-格式。我优化了标题层级、增加了代码块语言标识、使用了列表和表格来提升可读性，并对警告信息进行了加粗标注。"><a href="#这份指南非常详尽！我已经帮你将其转换成了标准的-Markdown-格式。我优化了标题层级、增加了代码块语言标识、使用了列表和表格来提升可读性，并对警告信息进行了加粗标注。" class="headerlink" title="这份指南非常详尽！我已经帮你将其转换成了标准的 Markdown 格式。我优化了标题层级、增加了代码块语言标识、使用了列表和表格来提升可读性，并对警告信息进行了加粗标注。"></a>这份指南非常详尽！我已经帮你将其转换成了标准的 Markdown 格式。我优化了标题层级、增加了代码块语言标识、使用了列表和表格来提升可读性，并对警告信息进行了加粗标注。</h1><h2 id="Arch-KDE-Wayland-下-VS-Code-中文输入法终极指南"><a href="#Arch-KDE-Wayland-下-VS-Code-中文输入法终极指南" class="headerlink" title="Arch + KDE Wayland 下 VS Code 中文输入法终极指南"></a>Arch + KDE Wayland 下 VS Code 中文输入法终极指南</h2><p>##在 Arch Linux + KDE Plasma Wayland 环境下使用 VS Code，很多人会遇到中文输入法无法使用的问题。这篇文章总结了各种可用方法、可能遇到的坑，以及我最终成功的方案。<br>一、 前提条件</p>
+<ol>
+<li>确认 KDE 会话为 Wayland</li>
+</ol>
+<p>运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$XDG_SESSION_TYPE</span></span><br></pre></td></tr></table></figure>
+<p>预期输出： wayland<br>⚠️ 注意： 如果是 x11，VS Code 无法原生支持 Wayland，请先登录 KDE Wayland 会话。</p>
+<ol start="2">
+<li>确认 VS Code 安装方式</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> code</span><br><span class="line">code --version</span><br></pre></td></tr></table></figure>
+<p>推荐安装方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">paru -S visual-studio-code-bin</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S code</span><br></pre></td></tr></table></figure>
+<p>⚠️ 警告： 不要使用 Flatpak 版本，因为 Flatpak 默认走 XWayland，会导致 flags 配置失效。</p>
+<ol start="3">
+<li>安装 fcitx5 中文输入法</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S fcitx5 fcitx5-qt fcitx5-gtk fcitx5-chinese-addons fcitx5-configtool</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>安装推荐字体（可选，解决 HiDPI 模糊）</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S ttf-jetbrains-mono noto-fonts-cjk</span><br></pre></td></tr></table></figure>
+<p>VS Code 配置示例：<br>JSON</p>
+<p>“editor.fontFamily”: “JetBrains Mono, Noto Sans CJK SC”,<br>“editor.fontLigatures”: true,<br>“editor.fontSize”: 15,<br>“editor.lineHeight”: 1.6,<br>“window.zoomLevel”: 0</p>
+<p>二、 可行方案对比<br>方案 1：VS Code 原生 Wayland<br>配置方式： 修改 ~&#x2F;.config&#x2F;code-flags.conf<br>Code snippet<br>–ozone-platform&#x3D;wayland<br>–enable-wayland-ime<br>–enable-features&#x3D;WaylandWindowDecorations</p>
+<p>存在问题： KDE 下 VS Code (Electron) 无法接收 fcitx5<br>Wayland 输入，导致中文输入无效。<br>结论： 理论可行，实际不可用 → 放弃。</p>
+<p>方案 2：VS Code<br>XWayland（最终成功方案）<br>核心思路： 保持 KDE Wayland 会话，fcitx5 以 Wayland 原生运行，但 VS Code 强制走 XWayland 模式。</p>
+<p>优点： 中文输入 100% 可用，支持 HiDPI 缩放。</p>
+<p>步骤 1：临时启动验证</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx XMODIFIERS=@im=fcitx \</span><br><span class="line">code --enable-features=UseOzonePlatform --ozone-platform=x11</span><br></pre></td></tr></table></figure>
+<p>✅ 如果测试中文输入可用，请继续进行永久配置。<br>步骤 2：修改 Desktop 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/.local/share/applications</span><br><span class="line"><span class="built_in">cp</span> /usr/share/applications/code.desktop ~/.local/share/applications/</span><br><span class="line">nano ~/.local/share/applications/code.desktop</span><br><span class="line"></span><br><span class="line">找到 Exec= 行，修改为：</span><br><span class="line">Ini, TOML</span><br><span class="line"></span><br><span class="line">Exec=<span class="built_in">env</span> GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx XMODIFIERS=@im=fcitx /usr/bin/code --enable-features=UseOzonePlatform --ozone-platform=x11 %F</span><br></pre></td></tr></table></figure>
+<p>更新数据库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-desktop-database ~/.local/share/applications</span><br></pre></td></tr></table></figure>
+<p>步骤 3：配置 fcitx5 Wayland 原生启动</p>
+<p>创建 KDE 启动项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.config/autostart</span><br><span class="line">nano ~/.config/autostart/fcitx5-wayland.desktop</span><br><span class="line"></span><br><span class="line">写入以下内容：</span><br><span class="line">Ini, TOML</span><br><span class="line"></span><br><span class="line">[Desktop Entry]</span><br><span class="line">Type=Application</span><br><span class="line">Name=Fcitx5 (Wayland)</span><br><span class="line">Exec=<span class="built_in">env</span> DISPLAY= WAYLAND_DISPLAY=wayland-0 fcitx5 -d</span><br><span class="line">X-KDE-AutostartPhase=1</span><br><span class="line">X-KDE-Wayland-Only=<span class="literal">true</span></span><br><span class="line">NoDisplay=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>步骤 4：设置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.config/environment.d</span><br><span class="line">nano ~/.config/environment.d/fcitx5.conf</span><br><span class="line"></span><br><span class="line">写入内容：</span><br><span class="line">Code snippet</span><br><span class="line"></span><br><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br><span class="line">SDL_IM_MODULE=fcitx</span><br></pre></td></tr></table></figure>
+<p>⚠️ 重要： 必须 注销 KDE 并重新登录 才能生效。<br>三、 常见坑点汇总<br>坑点	解决方法	注意事项<br>KDE 自动启动 fcitx5 走 XWayland	使用 autostart 强制 Wayland	必须在 Exec 中清空 DISPLAY 变量<br>flags 文件不生效	检查 ~&#x2F;.config&#x2F;code-flags.conf	确保无后缀、无中文符号<br>环境变量未注入	放在 ~&#x2F;.config&#x2F;environment.d&#x2F;	不要写在 .xprofile 或 .xinitrc 中<br>VS Code 原生 Wayland 输入失败	切回 XWayland 模式启动	这是 Electron 在 KDE 下的已知 Bug<br>候选框错位 &#x2F; 跳动	切换到 XWayland 模式	目前无法通过单纯的 flags 完美解决<br>四、 总结</p>
+<p>最终成功方案配置：<br>环境： KDE Wayland 会话。<br>输入法： fcitx5 以原生 Wayland 启动。<br>编辑器： VS Code 通过 XWayland 模式运行。</p>
+<p>核心结论： 由于 Electron 的 Bug，在 KDE Wayland 下，目前最稳妥的方式是让 VS Code 走 XWayland 而 输入法走 Wayland。这样既能享受 Wayland 的流畅，又能保证中文输入的稳定性。</p>
 
     </div>
+    
+    
+    
+    
+    
     
     
 </div>
@@ -538,6 +375,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
