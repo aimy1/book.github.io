@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>别看了，快走吧。</title>
+    <title>Windows 10 /11 系统优化 | Hexo</title>
     <meta name="author" content="John Doe" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -46,6 +46,9 @@
 
 
 
+<script src="/js/cursor.js"></script>
+<script src="/js/click-effect.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkreader/darkreader.min.js"></script>
 <link rel="stylesheet" href="/css/main.css" />
 
 <meta name="generator" content="Hexo 7.3.0"></head>
@@ -54,48 +57,45 @@
         <transition name="fade">
             <div id="loading" v-show="loading">
                 <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存 浏览器默认开启</p>
-                    <img src="/images/loading.gif" />
+                    <span class="loader"></span>
+                    <h2 style="margin-top: 20px; color: #666; font-size: 1.2rem;">LOADING...</h2>
+                    <p style="color: #999; font-size: 0.9rem;">正在加载精彩内容</p>
                 </div>
             </div>
         </transition>
         <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
     <nav id="desktop-menu">
-        <a class="title" href="/">
-            <span>AIMY</span>
-        </a>
         
         <a href="/">
             <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
+            <span>Home</span>
         </a>
         
         <a href="/about">
             <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
+            <span>About</span>
         </a>
         
         <a href="/archives">
             <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
+            <span>Archives</span>
         </a>
         
         <a href="/categories">
             <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
+            <span>Categories</span>
         </a>
         
         <a href="/tags">
             <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
+            <span>Tags</span>
         </a>
         
     </nav>
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
             <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;菜单</span>
+            <span>菜单</span>
         </div>
         <transition name="slide">
             <div class="items" v-show="showMenuItems">
@@ -153,24 +153,183 @@
     <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
 </transition>
 
+        
+        <!-- 侧边栏 -->
+        <div id="card-style">
+  <div id="card-div">
+    <div class="card-border"></div>
+
+    <div class="card-content">
+      <!-- Avatar -->
+      <div class="avatar">
+        <img src="/images/avatar.jpg" alt="avatar" />
+      </div>
+
+      <!-- Name -->
+      <div class="name">aimy</div>
+
+      <!-- Description -->
+      <div class="description">比较懒，写的不详细</div>
+
+      <!-- Article Count -->
+      <div class="article-count">
+        文章数量：16
+      </div>
+
+      <!-- Datetime -->
+      <div class="datetime" id="datetime-display">加载中...</div>
+
+      <!-- Icon Links -->
+      
+      
+      <!-- Friend Links -->
+      
+      <div class="friend-links">
+        ——👇实用
+        <a href="https://google.com" target="_blank">Google</a>
+        <a href="https://distrowatch.com/" target="_blank">linux排名</a>
+        <a href="https://www.speedtest.net/" target="_blank">speedtest</a>
+        <a href="https://github.com/" target="_blank">github</a>
+        <a href="https://flathub.org/zh-Hans" target="_blank">flathub</a>
+        <a href="https://dash.cloudflare.com/" target="_blank">cloudflare</a>
+        <a href="https://idx.google.com/" target="_blank">Firebase Studio</a>
+        <a href="https://theporndude.com/zh" target="_blank">theporndude</a>
+
+        ——👇AI🤖
+        <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>
+        <a href="https://gemini.google.com/app" target="_blank">Gemini</a>
+
+        ——👇比较有用的网站
+        <a href="https://www.coolexe.com/" target="_blank">Windows滚去这里👋</a>
+        <a href="https://www.freecodecamp.org/chinese/news/all-emojis-emoji-list-for-copy-and-paste/" target="_blank">Emoji 表情🥳</a>
+        <a href="https://www.kaliorg.com/" target="_blank">Kali中文论坛</a>
+        <a href="https://tool.mkblog.cn/logoly/#/" target="_blank">PornHub风格 Logo 生成工具</a>
+        <a href="https://www.mc.js.cool/" target="_blank">我的世界网页版</a>
+      </div>
+      
+
+
+    </div>
+  </div>
+
+  <!-- 最新文章面板 -->
+  <div id="latest-posts-panel">
+    <div class="card-border"></div>
+    <div class="card-content">
+      <div class="name">📚 最新文章</div>
+      <div class="description">看看最近写了什么</div>
+
+      <ul class="latest-posts-list">
+        
+          <li>
+            <a href="/2025/06/11/Debian%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📕Debian常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/12/MariaDB%E7%9A%84%E5%AE%89%E8%A3%85/" target="_blank">
+              <span class="post-title">MariaDB的安装（适用于 Arch）</span>
+              <span class="post-date">2025-06-12</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/11/Windows%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📃Windows常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/26/code%E5%9C%A8wayland%E4%B8%8A%E8%BF%90%E8%A1%8C/" target="_blank">
+              <span class="post-title">code在Wayland上运行的方法</span>
+              <span class="post-date">2025-12-26</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/10/manjaro%E5%85%A5%E9%97%A8/" target="_blank">
+              <span class="post-title">manjaro入门</span>
+              <span class="post-date">2025-06-10</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 脚本：访问人数 & 网站总运行时间 & 当前时间 -->
+<script>
+  // 当前时间
+  function updateDatetime() {
+    const now = new Date();
+    document.getElementById('datetime-display').innerText = now.toLocaleString();
+  }
+  setInterval(updateDatetime, 1000);
+  updateDatetime();
+</script>
+
+        <!-- 浮动按钮 -->
+        <div id="card-toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div id="dark-toggle-btn">
+            <i class="fa-solid fa-moon"></i>
+        </div>
+        
+ 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>Windows 10 /11 系统优化</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
+            <div id="home-posts-wrap">
+    <div class="article">
+        
+        <div>
+            <h1>Windows 10 /11 系统优化</h1>
+        </div>
+        <div class="info">
+            <span class="date">
+                <span class="icon">
+                    <i class="fa-solid fa-calendar fa-fw"></i>
+                </span>
+                2025/6/11
             </span>
-            2025/6/11
-        </span>
+            
+            <span class="category">
+                <a href="/categories/Windows/">
+                    <span class="icon">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </span>
+                    Windows
+                </a>
+            </span>
+            
+            
+            <span class="tags">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                
+                <a class="tag" href="/tags/Windows-10/">
+                    Windows 10
+                </a>
+                
+                <a class="tag" href="/tags/Windows-11/">
+                    Windows 11
+                </a>
+                
+                <a class="tag" href="/tags/Optimization/">
+                    Optimization
+                </a>
+                
+            </span>
+            
+        </div>
         
         
-    </div>
-    
-    <div class="content" v-pre>
-        <hr>
+        <div class="content" v-pre>
+            <hr>
 <h1 id="系统开启卓越性能的方法-代码"><a href="#系统开启卓越性能的方法-代码" class="headerlink" title="系统开启卓越性能的方法+代码"></a>系统开启卓越性能的方法+代码</h1><p>首先在搜索栏里找到：Windows PowerShell</p>
 <p>找到后以管理员权限打开它</p>
 <p>然后输入以下代码回车确认即可！</p>
@@ -193,34 +352,45 @@
 <h2 id="Snipaste-高效的截图神器"><a href="#Snipaste-高效的截图神器" class="headerlink" title="Snipaste 高效的截图神器"></a>Snipaste 高效的截图神器</h2><p>这款Snipaste的截图神器，用它来截图的话非常高效！<br>支持更精准的截图模式，同时它可以将截图粘贴为浮动窗口，来进行编辑<br>也可以支持模糊处理、标注等等…..<br>官方下载：<a target="_blank" rel="noopener" href="https://www.snipaste.com/">https://www.snipaste.com/</a></p>
 <h2 id="ARC-浏览器，替代-Chrome-的-“最新爆火”-AI-浏览器"><a href="#ARC-浏览器，替代-Chrome-的-“最新爆火”-AI-浏览器" class="headerlink" title="ARC 浏览器，替代 Chrome 的 “最新爆火” AI 浏览器"></a>ARC 浏览器，替代 Chrome 的 “最新爆火” AI 浏览器</h2><p>ARC 浏览器基于 Chromium 内核，其最突出的特点是重新定义了用户交互逻辑和操作体验。它引入了如“空间”概念、竖向标签栏、快速预览、分屏功能和整合 AI 技术等一系列先进功能，与传统浏览器大相径庭。这些创新不仅赢得了众多科技爱好者的喜爱，还受到了许多科技媒体的高度评价。ARC 以其前瞻性设计重新激发了市场对浏览器技术的热情。<br>官方下载：<a target="_blank" rel="noopener" href="https://arc.net/">https://arc.net/</a></p>
 
+        </div>
+        
+        
+        
+        
+        
+        
+        
     </div>
     
-    
-    
-    
-    
-    
-    
-</div>
-<div id="card-style">
+    <div id="home-card">
+        <div id="card-style">
   <div id="card-div">
     <div class="card-border"></div>
+
     <div class="card-content">
+      <!-- Avatar -->
       <div class="avatar">
         <img src="/images/avatar.jpg" alt="avatar" />
       </div>
 
+      <!-- Name -->
       <div class="name">aimy</div>
 
+      <!-- Description -->
       <div class="description">比较懒，写的不详细</div>
 
- <div class="article-count">
-  文章数量：16
-</div>
+      <!-- Article Count -->
+      <div class="article-count">
+        文章数量：16
+      </div>
+
+      <!-- Datetime -->
       <div class="datetime" id="datetime-display">加载中...</div>
 
+      <!-- Icon Links -->
       
-
+      
+      <!-- Friend Links -->
       
       <div class="friend-links">
         ——👇实用
@@ -232,85 +402,102 @@
         <a href="https://dash.cloudflare.com/" target="_blank">cloudflare</a>
         <a href="https://idx.google.com/" target="_blank">Firebase Studio</a>
         <a href="https://theporndude.com/zh" target="_blank">theporndude</a>
+
         ——👇AI🤖
         <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>
         <a href="https://gemini.google.com/app" target="_blank">Gemini</a>
+
         ——👇比较有用的网站
         <a href="https://www.coolexe.com/" target="_blank">Windows滚去这里👋</a>
         <a href="https://www.freecodecamp.org/chinese/news/all-emojis-emoji-list-for-copy-and-paste/" target="_blank">Emoji 表情🥳</a>
         <a href="https://www.kaliorg.com/" target="_blank">Kali中文论坛</a>
-         <a href="https://tool.mkblog.cn/logoly/#/" target="_blank">PornHub 风格 Logo 生成工具</a>
+        <a href="https://tool.mkblog.cn/logoly/#/" target="_blank">PornHub风格 Logo 生成工具</a>
         <a href="https://www.mc.js.cool/" target="_blank">我的世界网页版</a>
       </div>
       
+
+
     </div>
   </div>
 
-<!-- 新增最新文章面板 -->
-<div id="latest-posts-panel" style="margin-top: 20px;">
-  <div class="card-border"></div>
-  <div class="card-content">
-    <div class="name">📚 最新文章</div>
-    <div class="description">看看最近写了什么</div>
+  <!-- 最新文章面板 -->
+  <div id="latest-posts-panel">
+    <div class="card-border"></div>
+    <div class="card-content">
+      <div class="name">📚 最新文章</div>
+      <div class="description">看看最近写了什么</div>
 
-    <ul class="latest-posts-list" style="list-style:none; padding-left:0;">
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/12/26/code%E5%9C%A8wayland%E4%B8%8A%E8%BF%90%E8%A1%8C/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            code在Wayland上运行的方法
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-12-26
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/16/tor%E7%BD%91%E7%AB%99%E7%9A%84%E6%90%AD%E5%BB%BA/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            tor(暗网地址)网站的搭建
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-16
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/12/MariaDB%E7%9A%84%E5%AE%89%E8%A3%85/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            MariaDB的安装（适用于 Arch）
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-12
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/11/Windows%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            📃Windows常用指令
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-11
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/11/archlinux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            📘Archlinux常用指令
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-11
-          </span>
-        </li>
-      
-    </ul>
+      <ul class="latest-posts-list">
+        
+          <li>
+            <a href="/2025/06/11/Debian%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📕Debian常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/12/MariaDB%E7%9A%84%E5%AE%89%E8%A3%85/" target="_blank">
+              <span class="post-title">MariaDB的安装（适用于 Arch）</span>
+              <span class="post-date">2025-06-12</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/11/Windows%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📃Windows常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/26/code%E5%9C%A8wayland%E4%B8%8A%E8%BF%90%E8%A1%8C/" target="_blank">
+              <span class="post-title">code在Wayland上运行的方法</span>
+              <span class="post-date">2025-12-26</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/10/manjaro%E5%85%A5%E9%97%A8/" target="_blank">
+              <span class="post-title">manjaro入门</span>
+              <span class="post-date">2025-06-10</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
   </div>
 </div>
+
+<!-- 脚本：访问人数 & 网站总运行时间 & 当前时间 -->
+<script>
+  // 当前时间
+  function updateDatetime() {
+    const now = new Date();
+    document.getElementById('datetime-display').innerText = now.toLocaleString();
+  }
+  setInterval(updateDatetime, 1000);
+  updateDatetime();
+</script>
+
+    </div>
+    
 </div>
 
-            <footer id="footer">
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+        <footer id="footer">
   <div id="footer-wrap">
     <div class="footer-row">
       <div class="footer-left">
         <p>
-           &copy; 2022 - 2025 &commat;aimy 
+           &copy; 2022 - 2026 &commat;aimy 
           <span id="footer-icon">
             <i class="fa-solid fa-font-awesome fa-fw"></i>
           </span>
@@ -344,14 +531,6 @@
   updateDateTime(); // 初始化调用
 </script>
 
-        </div>
-        
-        <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
-            </div>
-        </transition>
-        
     </div>
     <script src="/js/main.js"></script>
     

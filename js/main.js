@@ -1,3 +1,79 @@
+function applyDarkPref() {
+    const pref = localStorage.getItem("dark-reader");
+    if (pref === "on") {
+        document.body.classList.add("dark-reader");
+        if (window.DarkReader) {
+            if (window.DarkReader.setFetchMethod && window.fetch) {
+                window.DarkReader.setFetchMethod(window.fetch);
+            }
+            window.DarkReader.enable({
+                brightness: 105,
+                contrast: 100,
+                sepia: 0,
+            });
+        }
+    } else if (window.DarkReader) {
+        window.DarkReader.disable();
+    }
+}
+window.toggleDarkMode = function () {
+    const enable = !document.body.classList.contains("dark-reader");
+    if (window.DarkReader) {
+        if (enable) {
+            if (window.DarkReader.setFetchMethod && window.fetch) {
+                window.DarkReader.setFetchMethod(window.fetch);
+            }
+            window.DarkReader.enable({
+                brightness: 105,
+                contrast: 100,
+                sepia: 0,
+            });
+        } else {
+            window.DarkReader.disable();
+        }
+    }
+    document.body.classList.toggle("dark-reader");
+    localStorage.setItem("dark-reader", document.body.classList.contains("dark-reader") ? "on" : "off");
+};
+applyDarkPref();
+function throttle(fn, wait) {
+    let last = 0;
+    return function (e) {
+        const now = Date.now();
+        if (now - last < wait) return;
+        last = now;
+        fn.call(this, e);
+    };
+}
+function bindUI() {
+    const cardBtn = document.getElementById("card-toggle-btn");
+    if (cardBtn) {
+        cardBtn.addEventListener(
+            "click",
+            throttle(() => {
+                document.body.classList.toggle("sidebar-active");
+                const panel = document.getElementById("card-style");
+                if (panel) panel.classList.toggle("active");
+            }, 250),
+            { capture: true }
+        );
+    }
+    const darkBtn = document.getElementById("dark-toggle-btn");
+    if (darkBtn) {
+        darkBtn.addEventListener(
+            "click",
+            throttle(() => {
+                if (window.toggleDarkMode) window.toggleDarkMode();
+            }, 250),
+            { capture: true }
+        );
+    }
+}
+if (document.readyState === "loading") {
+    window.addEventListener("DOMContentLoaded", bindUI, { once: true });
+} else {
+    bindUI();
+}
 const app = Vue.createApp({
     mixins: Object.values(mixins),
     data() {

@@ -1,9 +1,8 @@
 mixins.home = {
     mounted() {
         let background = this.$refs.homeBackground;
-        let images = background.dataset.images.split(",");
-        let id = Math.floor(Math.random() * images.length);
-        background.style.backgroundImage = `url('${images[id]}')`;
+        background.style.backgroundImage = "none";
+        background.style.backgroundColor = "transparent";
         this.menuColor = true;
     },
     methods: {

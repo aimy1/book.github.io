@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>别看了，快走吧。</title>
+    <title>hexo的相关设置（仅参考） | Hexo</title>
     <meta name="author" content="John Doe" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -46,6 +46,9 @@
 
 
 
+<script src="/js/cursor.js"></script>
+<script src="/js/click-effect.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkreader/darkreader.min.js"></script>
 <link rel="stylesheet" href="/css/main.css" />
 
 <meta name="generator" content="Hexo 7.3.0"></head>
@@ -54,48 +57,45 @@
         <transition name="fade">
             <div id="loading" v-show="loading">
                 <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存 浏览器默认开启</p>
-                    <img src="/images/loading.gif" />
+                    <span class="loader"></span>
+                    <h2 style="margin-top: 20px; color: #666; font-size: 1.2rem;">LOADING...</h2>
+                    <p style="color: #999; font-size: 0.9rem;">正在加载精彩内容</p>
                 </div>
             </div>
         </transition>
         <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
     <nav id="desktop-menu">
-        <a class="title" href="/">
-            <span>AIMY</span>
-        </a>
         
         <a href="/">
             <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
+            <span>Home</span>
         </a>
         
         <a href="/about">
             <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
+            <span>About</span>
         </a>
         
         <a href="/archives">
             <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
+            <span>Archives</span>
         </a>
         
         <a href="/categories">
             <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
+            <span>Categories</span>
         </a>
         
         <a href="/tags">
             <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
+            <span>Tags</span>
         </a>
         
     </nav>
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
             <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;菜单</span>
+            <span>菜单</span>
         </div>
         <transition name="slide">
             <div class="items" v-show="showMenuItems">
@@ -153,62 +153,36 @@
     <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
 </transition>
 
-        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>hexo的相关设置（仅参考）</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2025/6/9
-        </span>
         
-        
-    </div>
-    
-    <div class="content" v-pre>
-        <h1 id="先从最基本的开始"><a href="#先从最基本的开始" class="headerlink" title="先从最基本的开始"></a>先从最基本的开始</h1><h3 id="初始化-Hexo-项目"><a href="#初始化-Hexo-项目" class="headerlink" title="初始化 Hexo 项目"></a>初始化 Hexo 项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> hexo（建立一个叫hexo的文件）</span><br><span class="line"><span class="built_in">cd</span> hexo（进入这个文件夹下）</span><br><span class="line">hexo init（初始化）</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h1 id="启动本地服务器浏览器查看效果"><a href="#启动本地服务器浏览器查看效果" class="headerlink" title="启动本地服务器浏览器查看效果"></a>启动本地服务器浏览器查看效果</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<h3 id="然后安装主题"><a href="#然后安装主题" class="headerlink" title="然后安装主题"></a>然后安装主题</h3><p>安装好之后在_config.yml  修改theme:（主题名称）<br>添加仓库：<br>deploy:<br>  type: git<br>  repo: <a target="_blank" rel="noopener" href="https://github.com/aimy1/book.github.io.git">https://github.com/aimy1/book.github.io.git</a></p>
-<h2 id="安装一键部署的工具"><a href="#安装一键部署的工具" class="headerlink" title="安装一键部署的工具"></a>安装一键部署的工具</h2>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>  运行三合一<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl &amp; hexo g *&amp; hexo s</span><br></pre></td></tr></table></figure><br>  推送的命令（从新修改本地的推到github,最简单就这一条）<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
-<h1 id="post-md模版，仅供参考"><a href="#post-md模版，仅供参考" class="headerlink" title="post.md模版，仅供参考"></a>post.md模版，仅供参考</h1>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">  ---</span><br><span class="line">title: &#123;&#123; title &#125;&#125; <span class="comment">#【必需】页面标题</span></span><br><span class="line"><span class="built_in">date</span>: &#123;&#123; <span class="built_in">date</span> &#125;&#125; <span class="comment">#【必需】页面创建日期</span></span><br><span class="line">updated: <span class="comment">#【可选】页面更新日期</span></span><br><span class="line">tags: <span class="comment">#【可选】文章标签</span></span><br><span class="line">categories: <span class="comment">#【可选】文章分类</span></span><br><span class="line">keywords: <span class="comment">#【可选】文章关键字</span></span><br><span class="line">description: <span class="comment">#【可选】文章描述</span></span><br><span class="line">top: <span class="comment"># 1 置顶</span></span><br><span class="line">top_img: <span class="comment">#【可选】文章顶部图片</span></span><br><span class="line">comments: <span class="comment">#【可选】显示文章评论模块(默认 true)</span></span><br><span class="line">cover: https://img.090227.xyz/file/ae62475a131f3734a201c.png <span class="comment">#【可选】文章缩略图(如果没有设置 top_img,文章页顶部将显示缩略图，可设为 false/图片地址/留空)</span></span><br><span class="line">toc: <span class="comment">#【可选】显示文章 TOC(默认为设置中 toc 的 enable 配置)</span></span><br><span class="line">toc_number: <span class="comment">#【可选】显示 toc_number(默认为设置中 toc 的 number 配置)</span></span><br><span class="line">toc_style_simple: <span class="comment">#【可选】显示 toc 简洁模式</span></span><br><span class="line">copyright: <span class="comment">#【可选】显示文章版权模块(默认为设置中 post_copyright 的 enable 配置)</span></span><br><span class="line">copyright_author: <span class="comment">#【可选】文章版权模块的文章作者</span></span><br><span class="line">copyright_author_href: <span class="comment">#【可选】文章版权模块的文章作者链接</span></span><br><span class="line">copyright_url: <span class="comment">#【可选】文章版权模块的文章作者链接</span></span><br><span class="line">copyright_info: <span class="comment">#【可选】文章版权模块的版权声明文字</span></span><br><span class="line">mathjax: <span class="comment">#【可选】显示 mathjax(当设置 mathjax 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">katex: <span class="comment">#【可选】显示 katex(当设置 katex 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">aplayer: <span class="comment">#【可选】在需要的页面加载 aplayer 的 js 和 css,请参考文章下面的音乐 配置</span></span><br><span class="line">highlight_shrink: <span class="comment">#【可选】配置代码框是否展开(true/false)(默认为设置中 highlight_shrink 的配置)</span></span><br><span class="line">aside: <span class="comment">#【可选】显示侧边栏 (默认 true)</span></span><br><span class="line">swiper_index: 10 <span class="comment">#【可选】首页轮播图配置 index 索引，数字越小越靠前</span></span><br><span class="line">top_group_index: 10 <span class="comment">#【可选】首页右侧卡片组配置, 数字越小越靠前</span></span><br><span class="line">ai: <span class="comment">#【可选】文章ai摘要</span></span><br><span class="line">background: <span class="string">&quot;#fff&quot;</span> <span class="comment">#【可选】文章主色，必须是16进制颜色且有6位，不可缩减，例如#ffffff 不可写成#fff</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;div class=<span class="string">&quot;video-container&quot;</span>&gt;</span><br><span class="line">[up主专用，视频内嵌代码贴在这]</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.video-container &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.video-container iframe &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="page-md模版，仅供参考"><a href="#page-md模版，仅供参考" class="headerlink" title="page.md模版，仅供参考"></a>page.md模版，仅供参考</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125; <span class="comment">#【必需】页面标题</span></span><br><span class="line"><span class="built_in">date</span>: &#123;&#123; <span class="built_in">date</span> &#125;&#125; <span class="comment">#【必需】页面创建日期</span></span><br><span class="line"><span class="built_in">type</span>: <span class="comment">#【必需】标签、分类、关于、音乐馆、友情链接、相册、相册详情、朋友圈、即刻页面需要配置</span></span><br><span class="line">updated: <span class="comment">#【可选】页面更新日期</span></span><br><span class="line">comments: <span class="comment">#【可选】显示页面评论模块(默认 true)</span></span><br><span class="line">description: <span class="comment">#【可选】页面描述</span></span><br><span class="line">keywords: <span class="comment">#【可选】页面关键字</span></span><br><span class="line">top_img: https://img.090227.xyz/file/ae62475a131f3734a201c.png <span class="comment">#【可选】页面顶部图片</span></span><br><span class="line">mathjax: <span class="comment">#【可选】显示 mathjax(当设置 mathjax 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">katex: <span class="comment">#【可选】显示 katex(当设置 katex 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">aside: <span class="comment">#【可选】显示侧边栏 (默认 true)</span></span><br><span class="line">aplayer: <span class="comment">#【可选】在需要的页面加载 aplayer 的 js 和 css,请参考文章下面的音乐 配置</span></span><br><span class="line">highlight_shrink: <span class="comment">#【可选】配置代码框是否展开(true/false)(默认为设置中 highlight_shrink 的配置)</span></span><br><span class="line">top_single_background: <span class="comment">#【可选】部分页面的顶部模块背景图片</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h1 id="新建博文命令"><a href="#新建博文命令" class="headerlink" title="新建博文命令"></a>新建博文命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new 这是一篇新的博文</span><br></pre></td></tr></table></figure>
-<h1 id="开启本地搜索"><a href="#开启本地搜索" class="headerlink" title="开启本地搜索"></a>开启本地搜索</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
-<h2 id="设置主题配置文件"><a href="#设置主题配置文件" class="headerlink" title="设置主题配置文件"></a>设置主题配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  preload: <span class="literal">false</span></span><br><span class="line">  CDN:</span><br></pre></td></tr></table></figure>
-
-    </div>
-    
-    
-    
-    
-    
-    
-    
-</div>
-<div id="card-style">
+        <!-- 侧边栏 -->
+        <div id="card-style">
   <div id="card-div">
     <div class="card-border"></div>
+
     <div class="card-content">
+      <!-- Avatar -->
       <div class="avatar">
         <img src="/images/avatar.jpg" alt="avatar" />
       </div>
 
+      <!-- Name -->
       <div class="name">aimy</div>
 
+      <!-- Description -->
       <div class="description">比较懒，写的不详细</div>
 
- <div class="article-count">
-  文章数量：16
-</div>
+      <!-- Article Count -->
+      <div class="article-count">
+        文章数量：16
+      </div>
+
+      <!-- Datetime -->
       <div class="datetime" id="datetime-display">加载中...</div>
 
+      <!-- Icon Links -->
       
-
+      
+      <!-- Friend Links -->
       
       <div class="friend-links">
         ——👇实用
@@ -220,85 +194,294 @@
         <a href="https://dash.cloudflare.com/" target="_blank">cloudflare</a>
         <a href="https://idx.google.com/" target="_blank">Firebase Studio</a>
         <a href="https://theporndude.com/zh" target="_blank">theporndude</a>
+
         ——👇AI🤖
         <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>
         <a href="https://gemini.google.com/app" target="_blank">Gemini</a>
+
         ——👇比较有用的网站
         <a href="https://www.coolexe.com/" target="_blank">Windows滚去这里👋</a>
         <a href="https://www.freecodecamp.org/chinese/news/all-emojis-emoji-list-for-copy-and-paste/" target="_blank">Emoji 表情🥳</a>
         <a href="https://www.kaliorg.com/" target="_blank">Kali中文论坛</a>
-         <a href="https://tool.mkblog.cn/logoly/#/" target="_blank">PornHub 风格 Logo 生成工具</a>
+        <a href="https://tool.mkblog.cn/logoly/#/" target="_blank">PornHub风格 Logo 生成工具</a>
         <a href="https://www.mc.js.cool/" target="_blank">我的世界网页版</a>
       </div>
       
+
+
     </div>
   </div>
 
-<!-- 新增最新文章面板 -->
-<div id="latest-posts-panel" style="margin-top: 20px;">
-  <div class="card-border"></div>
-  <div class="card-content">
-    <div class="name">📚 最新文章</div>
-    <div class="description">看看最近写了什么</div>
+  <!-- 最新文章面板 -->
+  <div id="latest-posts-panel">
+    <div class="card-border"></div>
+    <div class="card-content">
+      <div class="name">📚 最新文章</div>
+      <div class="description">看看最近写了什么</div>
 
-    <ul class="latest-posts-list" style="list-style:none; padding-left:0;">
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/12/26/code%E5%9C%A8wayland%E4%B8%8A%E8%BF%90%E8%A1%8C/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            code在Wayland上运行的方法
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-12-26
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/16/tor%E7%BD%91%E7%AB%99%E7%9A%84%E6%90%AD%E5%BB%BA/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            tor(暗网地址)网站的搭建
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-16
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/12/MariaDB%E7%9A%84%E5%AE%89%E8%A3%85/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            MariaDB的安装（适用于 Arch）
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-12
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/11/Windows%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            📃Windows常用指令
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-11
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/11/archlinux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            📘Archlinux常用指令
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-11
-          </span>
-        </li>
-      
-    </ul>
+      <ul class="latest-posts-list">
+        
+          <li>
+            <a href="/2025/06/11/Debian%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📕Debian常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/12/MariaDB%E7%9A%84%E5%AE%89%E8%A3%85/" target="_blank">
+              <span class="post-title">MariaDB的安装（适用于 Arch）</span>
+              <span class="post-date">2025-06-12</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/11/Windows%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📃Windows常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/26/code%E5%9C%A8wayland%E4%B8%8A%E8%BF%90%E8%A1%8C/" target="_blank">
+              <span class="post-title">code在Wayland上运行的方法</span>
+              <span class="post-date">2025-12-26</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/10/manjaro%E5%85%A5%E9%97%A8/" target="_blank">
+              <span class="post-title">manjaro入门</span>
+              <span class="post-date">2025-06-10</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
   </div>
 </div>
+
+<!-- 脚本：访问人数 & 网站总运行时间 & 当前时间 -->
+<script>
+  // 当前时间
+  function updateDatetime() {
+    const now = new Date();
+    document.getElementById('datetime-display').innerText = now.toLocaleString();
+  }
+  setInterval(updateDatetime, 1000);
+  updateDatetime();
+</script>
+
+        <!-- 浮动按钮 -->
+        <div id="card-toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div id="dark-toggle-btn">
+            <i class="fa-solid fa-moon"></i>
+        </div>
+        
+ 
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div id="home-posts-wrap">
+    <div class="article">
+        
+        <div>
+            <h1>hexo的相关设置（仅参考）</h1>
+        </div>
+        <div class="info">
+            <span class="date">
+                <span class="icon">
+                    <i class="fa-solid fa-calendar fa-fw"></i>
+                </span>
+                2025/6/9
+            </span>
+            
+            <span class="category">
+                <a href="/categories/Blog/">
+                    <span class="icon">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </span>
+                    Blog
+                </a>
+            </span>
+            
+            
+            <span class="tags">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                
+                <a class="tag" href="/tags/Hexo/">
+                    Hexo
+                </a>
+                
+                <a class="tag" href="/tags/Configuration/">
+                    Configuration
+                </a>
+                
+            </span>
+            
+        </div>
+        
+        
+        <div class="content" v-pre>
+            <h1 id="先从最基本的开始"><a href="#先从最基本的开始" class="headerlink" title="先从最基本的开始"></a>先从最基本的开始</h1><h3 id="初始化-Hexo-项目"><a href="#初始化-Hexo-项目" class="headerlink" title="初始化 Hexo 项目"></a>初始化 Hexo 项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> hexo（建立一个叫hexo的文件）</span><br><span class="line"><span class="built_in">cd</span> hexo（进入这个文件夹下）</span><br><span class="line">hexo init（初始化）</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h1 id="启动本地服务器浏览器查看效果"><a href="#启动本地服务器浏览器查看效果" class="headerlink" title="启动本地服务器浏览器查看效果"></a>启动本地服务器浏览器查看效果</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="然后安装主题"><a href="#然后安装主题" class="headerlink" title="然后安装主题"></a>然后安装主题</h3><p>安装好之后在_config.yml  修改theme:（主题名称）<br>添加仓库：<br>deploy:<br>  type: git<br>  repo: <a target="_blank" rel="noopener" href="https://github.com/aimy1/book.github.io.git">https://github.com/aimy1/book.github.io.git</a></p>
+<h2 id="安装一键部署的工具"><a href="#安装一键部署的工具" class="headerlink" title="安装一键部署的工具"></a>安装一键部署的工具</h2>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>  运行三合一<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl &amp; hexo g *&amp; hexo s</span><br></pre></td></tr></table></figure><br>  推送的命令（从新修改本地的推到github,最简单就这一条）<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<h1 id="post-md模版，仅供参考"><a href="#post-md模版，仅供参考" class="headerlink" title="post.md模版，仅供参考"></a>post.md模版，仅供参考</h1>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">  ---</span><br><span class="line">title: &#123;&#123; title &#125;&#125; <span class="comment">#【必需】页面标题</span></span><br><span class="line"><span class="built_in">date</span>: &#123;&#123; <span class="built_in">date</span> &#125;&#125; <span class="comment">#【必需】页面创建日期</span></span><br><span class="line">updated: <span class="comment">#【可选】页面更新日期</span></span><br><span class="line">tags: <span class="comment">#【可选】文章标签</span></span><br><span class="line">categories: <span class="comment">#【可选】文章分类</span></span><br><span class="line">keywords: <span class="comment">#【可选】文章关键字</span></span><br><span class="line">description: <span class="comment">#【可选】文章描述</span></span><br><span class="line">top: <span class="comment"># 1 置顶</span></span><br><span class="line">top_img: <span class="comment">#【可选】文章顶部图片</span></span><br><span class="line">comments: <span class="comment">#【可选】显示文章评论模块(默认 true)</span></span><br><span class="line">cover: https://img.090227.xyz/file/ae62475a131f3734a201c.png <span class="comment">#【可选】文章缩略图(如果没有设置 top_img,文章页顶部将显示缩略图，可设为 false/图片地址/留空)</span></span><br><span class="line">toc: <span class="comment">#【可选】显示文章 TOC(默认为设置中 toc 的 enable 配置)</span></span><br><span class="line">toc_number: <span class="comment">#【可选】显示 toc_number(默认为设置中 toc 的 number 配置)</span></span><br><span class="line">toc_style_simple: <span class="comment">#【可选】显示 toc 简洁模式</span></span><br><span class="line">copyright: <span class="comment">#【可选】显示文章版权模块(默认为设置中 post_copyright 的 enable 配置)</span></span><br><span class="line">copyright_author: <span class="comment">#【可选】文章版权模块的文章作者</span></span><br><span class="line">copyright_author_href: <span class="comment">#【可选】文章版权模块的文章作者链接</span></span><br><span class="line">copyright_url: <span class="comment">#【可选】文章版权模块的文章作者链接</span></span><br><span class="line">copyright_info: <span class="comment">#【可选】文章版权模块的版权声明文字</span></span><br><span class="line">mathjax: <span class="comment">#【可选】显示 mathjax(当设置 mathjax 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">katex: <span class="comment">#【可选】显示 katex(当设置 katex 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">aplayer: <span class="comment">#【可选】在需要的页面加载 aplayer 的 js 和 css,请参考文章下面的音乐 配置</span></span><br><span class="line">highlight_shrink: <span class="comment">#【可选】配置代码框是否展开(true/false)(默认为设置中 highlight_shrink 的配置)</span></span><br><span class="line">aside: <span class="comment">#【可选】显示侧边栏 (默认 true)</span></span><br><span class="line">swiper_index: 10 <span class="comment">#【可选】首页轮播图配置 index 索引，数字越小越靠前</span></span><br><span class="line">top_group_index: 10 <span class="comment">#【可选】首页右侧卡片组配置, 数字越小越靠前</span></span><br><span class="line">ai: <span class="comment">#【可选】文章ai摘要</span></span><br><span class="line">background: <span class="string">&quot;#fff&quot;</span> <span class="comment">#【可选】文章主色，必须是16进制颜色且有6位，不可缩减，例如#ffffff 不可写成#fff</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;div class=<span class="string">&quot;video-container&quot;</span>&gt;</span><br><span class="line">[up主专用，视频内嵌代码贴在这]</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.video-container &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding-top: 56.25%; /* 16:9 aspect ratio (height/width = 9/16 * 100%) */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.video-container iframe &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="page-md模版，仅供参考"><a href="#page-md模版，仅供参考" class="headerlink" title="page.md模版，仅供参考"></a>page.md模版，仅供参考</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125; <span class="comment">#【必需】页面标题</span></span><br><span class="line"><span class="built_in">date</span>: &#123;&#123; <span class="built_in">date</span> &#125;&#125; <span class="comment">#【必需】页面创建日期</span></span><br><span class="line"><span class="built_in">type</span>: <span class="comment">#【必需】标签、分类、关于、音乐馆、友情链接、相册、相册详情、朋友圈、即刻页面需要配置</span></span><br><span class="line">updated: <span class="comment">#【可选】页面更新日期</span></span><br><span class="line">comments: <span class="comment">#【可选】显示页面评论模块(默认 true)</span></span><br><span class="line">description: <span class="comment">#【可选】页面描述</span></span><br><span class="line">keywords: <span class="comment">#【可选】页面关键字</span></span><br><span class="line">top_img: https://img.090227.xyz/file/ae62475a131f3734a201c.png <span class="comment">#【可选】页面顶部图片</span></span><br><span class="line">mathjax: <span class="comment">#【可选】显示 mathjax(当设置 mathjax 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">katex: <span class="comment">#【可选】显示 katex(当设置 katex 的 per_page: false 时，才需要配置，默认 false)</span></span><br><span class="line">aside: <span class="comment">#【可选】显示侧边栏 (默认 true)</span></span><br><span class="line">aplayer: <span class="comment">#【可选】在需要的页面加载 aplayer 的 js 和 css,请参考文章下面的音乐 配置</span></span><br><span class="line">highlight_shrink: <span class="comment">#【可选】配置代码框是否展开(true/false)(默认为设置中 highlight_shrink 的配置)</span></span><br><span class="line">top_single_background: <span class="comment">#【可选】部分页面的顶部模块背景图片</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h1 id="新建博文命令"><a href="#新建博文命令" class="headerlink" title="新建博文命令"></a>新建博文命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new 这是一篇新的博文</span><br></pre></td></tr></table></figure>
+<h1 id="开启本地搜索"><a href="#开启本地搜索" class="headerlink" title="开启本地搜索"></a>开启本地搜索</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure>
+<h2 id="设置主题配置文件"><a href="#设置主题配置文件" class="headerlink" title="设置主题配置文件"></a>设置主题配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  preload: <span class="literal">false</span></span><br><span class="line">  CDN:</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    
+    <div id="home-card">
+        <div id="card-style">
+  <div id="card-div">
+    <div class="card-border"></div>
+
+    <div class="card-content">
+      <!-- Avatar -->
+      <div class="avatar">
+        <img src="/images/avatar.jpg" alt="avatar" />
+      </div>
+
+      <!-- Name -->
+      <div class="name">aimy</div>
+
+      <!-- Description -->
+      <div class="description">比较懒，写的不详细</div>
+
+      <!-- Article Count -->
+      <div class="article-count">
+        文章数量：16
+      </div>
+
+      <!-- Datetime -->
+      <div class="datetime" id="datetime-display">加载中...</div>
+
+      <!-- Icon Links -->
+      
+      
+      <!-- Friend Links -->
+      
+      <div class="friend-links">
+        ——👇实用
+        <a href="https://google.com" target="_blank">Google</a>
+        <a href="https://distrowatch.com/" target="_blank">linux排名</a>
+        <a href="https://www.speedtest.net/" target="_blank">speedtest</a>
+        <a href="https://github.com/" target="_blank">github</a>
+        <a href="https://flathub.org/zh-Hans" target="_blank">flathub</a>
+        <a href="https://dash.cloudflare.com/" target="_blank">cloudflare</a>
+        <a href="https://idx.google.com/" target="_blank">Firebase Studio</a>
+        <a href="https://theporndude.com/zh" target="_blank">theporndude</a>
+
+        ——👇AI🤖
+        <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>
+        <a href="https://gemini.google.com/app" target="_blank">Gemini</a>
+
+        ——👇比较有用的网站
+        <a href="https://www.coolexe.com/" target="_blank">Windows滚去这里👋</a>
+        <a href="https://www.freecodecamp.org/chinese/news/all-emojis-emoji-list-for-copy-and-paste/" target="_blank">Emoji 表情🥳</a>
+        <a href="https://www.kaliorg.com/" target="_blank">Kali中文论坛</a>
+        <a href="https://tool.mkblog.cn/logoly/#/" target="_blank">PornHub风格 Logo 生成工具</a>
+        <a href="https://www.mc.js.cool/" target="_blank">我的世界网页版</a>
+      </div>
+      
+
+
+    </div>
+  </div>
+
+  <!-- 最新文章面板 -->
+  <div id="latest-posts-panel">
+    <div class="card-border"></div>
+    <div class="card-content">
+      <div class="name">📚 最新文章</div>
+      <div class="description">看看最近写了什么</div>
+
+      <ul class="latest-posts-list">
+        
+          <li>
+            <a href="/2025/06/11/Debian%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📕Debian常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/12/MariaDB%E7%9A%84%E5%AE%89%E8%A3%85/" target="_blank">
+              <span class="post-title">MariaDB的安装（适用于 Arch）</span>
+              <span class="post-date">2025-06-12</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/11/Windows%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📃Windows常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/26/code%E5%9C%A8wayland%E4%B8%8A%E8%BF%90%E8%A1%8C/" target="_blank">
+              <span class="post-title">code在Wayland上运行的方法</span>
+              <span class="post-date">2025-12-26</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/10/manjaro%E5%85%A5%E9%97%A8/" target="_blank">
+              <span class="post-title">manjaro入门</span>
+              <span class="post-date">2025-06-10</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 </div>
 
-            <footer id="footer">
+<!-- 脚本：访问人数 & 网站总运行时间 & 当前时间 -->
+<script>
+  // 当前时间
+  function updateDatetime() {
+    const now = new Date();
+    document.getElementById('datetime-display').innerText = now.toLocaleString();
+  }
+  setInterval(updateDatetime, 1000);
+  updateDatetime();
+</script>
+
+    </div>
+    
+</div>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+        <footer id="footer">
   <div id="footer-wrap">
     <div class="footer-row">
       <div class="footer-left">
         <p>
-           &copy; 2022 - 2025 &commat;aimy 
+           &copy; 2022 - 2026 &commat;aimy 
           <span id="footer-icon">
             <i class="fa-solid fa-font-awesome fa-fw"></i>
           </span>
@@ -332,14 +515,6 @@
   updateDateTime(); // 初始化调用
 </script>
 
-        </div>
-        
-        <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
-            </div>
-        </transition>
-        
     </div>
     <script src="/js/main.js"></script>
     

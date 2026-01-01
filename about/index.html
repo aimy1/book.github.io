@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>别看了，快走吧。</title>
+    <title>关于我 | Hexo</title>
     <meta name="author" content="John Doe" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -42,6 +42,9 @@
 
 
 
+<script src="/js/cursor.js"></script>
+<script src="/js/click-effect.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkreader/darkreader.min.js"></script>
 <link rel="stylesheet" href="/css/main.css" />
 
 <meta name="generator" content="Hexo 7.3.0"></head>
@@ -50,48 +53,45 @@
         <transition name="fade">
             <div id="loading" v-show="loading">
                 <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存 浏览器默认开启</p>
-                    <img src="/images/loading.gif" />
+                    <span class="loader"></span>
+                    <h2 style="margin-top: 20px; color: #666; font-size: 1.2rem;">LOADING...</h2>
+                    <p style="color: #999; font-size: 0.9rem;">正在加载精彩内容</p>
                 </div>
             </div>
         </transition>
         <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
     <nav id="desktop-menu">
-        <a class="title" href="/">
-            <span>AIMY</span>
-        </a>
         
         <a href="/">
             <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
+            <span>Home</span>
         </a>
         
         <a href="/about">
             <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
+            <span>About</span>
         </a>
         
         <a href="/archives">
             <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;Archives</span>
+            <span>Archives</span>
         </a>
         
         <a href="/categories">
             <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
+            <span>Categories</span>
         </a>
         
         <a href="/tags">
             <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
+            <span>Tags</span>
         </a>
         
     </nav>
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
             <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;菜单</span>
+            <span>菜单</span>
         </div>
         <transition name="slide">
             <div class="items" v-show="showMenuItems">
@@ -149,32 +149,705 @@
     <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
 </transition>
 
+        
+        <!-- 侧边栏 -->
+        <div id="card-style">
+  <div id="card-div">
+    <div class="card-border"></div>
+
+    <div class="card-content">
+      <!-- Avatar -->
+      <div class="avatar">
+        <img src="/images/avatar.jpg" alt="avatar" />
+      </div>
+
+      <!-- Name -->
+      <div class="name">aimy</div>
+
+      <!-- Description -->
+      <div class="description">比较懒，写的不详细</div>
+
+      <!-- Article Count -->
+      <div class="article-count">
+        文章数量：16
+      </div>
+
+      <!-- Datetime -->
+      <div class="datetime" id="datetime-display">加载中...</div>
+
+      <!-- Icon Links -->
+      
+      
+      <!-- Friend Links -->
+      
+      <div class="friend-links">
+        ——👇实用
+        <a href="https://google.com" target="_blank">Google</a>
+        <a href="https://distrowatch.com/" target="_blank">linux排名</a>
+        <a href="https://www.speedtest.net/" target="_blank">speedtest</a>
+        <a href="https://github.com/" target="_blank">github</a>
+        <a href="https://flathub.org/zh-Hans" target="_blank">flathub</a>
+        <a href="https://dash.cloudflare.com/" target="_blank">cloudflare</a>
+        <a href="https://idx.google.com/" target="_blank">Firebase Studio</a>
+        <a href="https://theporndude.com/zh" target="_blank">theporndude</a>
+
+        ——👇AI🤖
+        <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>
+        <a href="https://gemini.google.com/app" target="_blank">Gemini</a>
+
+        ——👇比较有用的网站
+        <a href="https://www.coolexe.com/" target="_blank">Windows滚去这里👋</a>
+        <a href="https://www.freecodecamp.org/chinese/news/all-emojis-emoji-list-for-copy-and-paste/" target="_blank">Emoji 表情🥳</a>
+        <a href="https://www.kaliorg.com/" target="_blank">Kali中文论坛</a>
+        <a href="https://tool.mkblog.cn/logoly/#/" target="_blank">PornHub风格 Logo 生成工具</a>
+        <a href="https://www.mc.js.cool/" target="_blank">我的世界网页版</a>
+      </div>
+      
+
+
+    </div>
+  </div>
+
+  <!-- 最新文章面板 -->
+  <div id="latest-posts-panel">
+    <div class="card-border"></div>
+    <div class="card-content">
+      <div class="name">📚 最新文章</div>
+      <div class="description">看看最近写了什么</div>
+
+      <ul class="latest-posts-list">
+        
+          <li>
+            <a href="/2025/06/11/Debian%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📕Debian常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/12/MariaDB%E7%9A%84%E5%AE%89%E8%A3%85/" target="_blank">
+              <span class="post-title">MariaDB的安装（适用于 Arch）</span>
+              <span class="post-date">2025-06-12</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/11/Windows%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📃Windows常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/26/code%E5%9C%A8wayland%E4%B8%8A%E8%BF%90%E8%A1%8C/" target="_blank">
+              <span class="post-title">code在Wayland上运行的方法</span>
+              <span class="post-date">2025-12-26</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/10/manjaro%E5%85%A5%E9%97%A8/" target="_blank">
+              <span class="post-title">manjaro入门</span>
+              <span class="post-date">2025-06-10</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 脚本：访问人数 & 网站总运行时间 & 当前时间 -->
+<script>
+  // 当前时间
+  function updateDatetime() {
+    const now = new Date();
+    document.getElementById('datetime-display').innerText = now.toLocaleString();
+  }
+  setInterval(updateDatetime, 1000);
+  updateDatetime();
+</script>
+
+        <!-- 浮动按钮 -->
+        <div id="card-toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div id="dark-toggle-btn">
+            <i class="fa-solid fa-moon"></i>
+        </div>
+        
+ 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>关于我</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/10/24
-        </span>
+            <div id="home-posts-wrap">
+    <div class="article">
         
         
-    </div>
-    
-    <div class="content" v-pre>
-        
+        <div class="content" v-pre>
+            
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --primary-color: #00f3ff;
+        --secondary-color: #bc13fe;
+        --glass-bg: rgba(255, 255, 255, 0.03);
+        --glass-border: rgba(255, 255, 255, 0.08);
+        --text-main: #ffffff;
+        --text-muted: rgba(255, 255, 255, 0.6);
+    }
+
+    /* 布局容器 */
+    .dashboard-wrapper {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 25px;
+        font-family: 'Rajdhani', sans-serif;
+        color: var(--text-main);
+    }
+
+    /* 通用玻璃卡片 - 统一边框布局 */
+    .glass-panel {
+        background: transparent; /* Changed from var(--glass-bg) to transparent */
+        backdrop-filter: none; /* Removed blur */
+        -webkit-backdrop-filter: none;
+        border: none;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: none; /* Removed shadow */
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .glass-panel:hover {
+        transform: translateY(-4px);
+        /* Removed border-color and box-shadow on hover to maintain transparency look, or adjust if needed */
+        /* border-color: rgba(0, 243, 255, 0.3); */
+        /* box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.25); */
+    }
+
+    /* 装饰性边角 */
+    .glass-panel::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    /* 左侧栏 */
+    .profile-col {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* ID 卡片 */
+    .id-card {
+        text-align: center;
+        padding-top: 40px;
+    }
+
+    .id-card .id-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avatar-container {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto 10px; /* Reduced bottom margin */
+        position: relative;
+        z-index: 1;
+    }
+    
+    .glitch-name {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2.2rem;
+        margin: 0; /* Removed bottom margin */
+        background: linear-gradient(to right, #fff, var(--primary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1.2; /* Better line height */
+    }
+
+    .avatar-glow {
+        position: absolute;
+        inset: -5px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        opacity: 0.5;
+        filter: blur(10px);
+        animation: pulse 3s infinite;
+    }
+
+    .avatar-main {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(255,255,255,0.1);
+        position: relative;
+        z-index: 2;
+    }
+
+    .role-chip {
+        display: inline-block;
+        background: transparent;
+        color: var(--primary-color);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+        border: 1px solid rgba(0, 243, 255, 0.2);
+    }
+
+    .meta-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 25px;
+        text-align: left;
+        display: inline-block;
+        color: var(--text-muted);
+    }
+    .meta-list li { margin-bottom: 8px; font-size: 0.95rem; }
+    .meta-list i { width: 20px; color: var(--primary-color); text-align: center; margin-right: 8px; }
+
+    .social-row {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .s-btn {
+        width: 40px; height: 40px;
+        display: flex; align-items: center; justify-content: center;
+        background: transparent;
+        border-radius: 10px;
+        color: #aaa;
+        transition: 0.3s;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .s-btn:hover { background: #fff; color: #000; transform: scale(1.1); box-shadow: 0 0 15px var(--primary-color); }
+
+    .action-btn {
+        display: flex; align-items: center; justify-content: center; gap: 10px;
+        width: 100%; padding: 12px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        border-radius: 12px;
+        color: #fff; font-weight: bold; text-decoration: none;
+        transition: 0.3s;
+        opacity: 0.9;
+        margin-top: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    .action-btn:hover { opacity: 1; letter-spacing: 1px; box-shadow: 0 0 20px rgba(0, 243, 255, 0.4); }
+    .action-btn::after {
+        content: '';
+        position: absolute;
+        top: 0; left: -100%; width: 100%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: 0.5s;
+    }
+    .action-btn:hover::after { left: 100%; }
+
+    /* 引言卡片 */
+    .quote-card { text-align: center; position: relative; }
+    .quote-icon { font-size: 1.5rem; color: rgba(255,255,255,0.2); margin-bottom: 15px; }
+    .quote-text { font-style: italic; font-size: 1.1rem; line-height: 1.6; margin-bottom: 10px; }
+    .quote-author { color: var(--primary-color); font-weight: bold; }
+
+    /* 音乐卡片 */
+    .widget-card { padding: 0; }
+    .music-widget { display: flex; align-items: center; padding: 15px; gap: 15px; }
+    .album-cover {
+        width: 50px; height: 50px; border-radius: 8px;
+        background: linear-gradient(45deg, #333, #666);
+        display: flex; align-items: center; justify-content: center;
+    }
+    .music-info { flex: 1; display: flex; flex-direction: column; }
+    .song-title { font-weight: bold; font-size: 0.95rem; }
+    .artist-name { font-size: 0.8rem; color: #888; }
+    .equalizer span {
+        display: inline-block; width: 3px; height: 10px;
+        background: var(--primary-color); margin: 0 1px;
+        animation: eq 1s infinite;
+    }
+    @keyframes eq { 0%, 100% { height: 10px; } 50% { height: 20px; } }
+
+    /* 右侧主内容 */
+    .main-col { display: flex; flex-direction: column; gap: 25px; }
+
+    /* 欢迎区 */
+    .greet-box { text-align: center; } /* 居中对齐 */
+    .greet-box h2 { font-size: 2rem; margin: 0 0 10px; font-family: 'Orbitron'; justify-content: center; display: flex; align-items: center; gap: 10px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
+    .stat-item { background: transparent; padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+    .stat-item .count { display: block; font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+    .stat-item .label { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+
+    /* 终端区 */
+    .terminal-header {
+        display: flex; justify-content: space-between; align-items: center;
+        border-bottom: none; padding-bottom: 10px; margin-bottom: 15px;
+    }
+    .dots { display: flex; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+    .terminal-body { font-family: 'Fira Code', monospace; line-height: 1.8; color: #d0d0d0; }
+    .prompt { color: var(--secondary-color); margin-right: 8px; }
+    .output { color: #aaa; margin-bottom: 15px; padding-left: 20px; border-left: none; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; justify-content: center; } /* 技能标签居中 */
+    .tag { padding: 4px 10px; background: transparent; border-radius: 4px; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.1); }
+    .tag-category { color: var(--primary-color); font-weight: bold; margin-right: 5px; }
+
+    /* 项目区 */
+    .panel-title { 
+        font-family: 'Orbitron'; 
+        font-size: 1.3rem; 
+        margin-bottom: 20px; 
+        border-left: none; 
+        padding-left: 0; 
+        text-align: center; /* 标题居中 */
+    }
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .project-card {
+        background: transparent; border: 1px solid rgba(255,255,255,0.05);
+        border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; transition: 0.3s;
+        text-align: center; /* 卡片内容居中 */
+    }
+    .project-card:hover { border-color: var(--primary-color); transform: translateY(-3px); }
+    .p-cover {
+        height: 130px;
+        background: linear-gradient(135deg, rgba(0, 243, 255, 0.05), rgba(188, 19, 254, 0.05));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: rgba(255,255,255,0.08);
+        border-bottom: none;
+        transition: 0.3s;
+    }
+
+    .p-header { padding: 15px; background: transparent; display: flex; justify-content: space-between; font-size: 1.2rem; }
+    .p-header .p-icon { color: var(--primary-color); }
+    .project-card h4 { padding: 0 15px; margin: 15px 0 5px; font-size: 1.1rem; }
+    .project-card p { padding: 0 15px; font-size: 0.9rem; color: #888; margin-bottom: 15px; }
+    .p-tech { padding: 0 15px 15px; display: flex; gap: 8px; justify-content: center; } /* 技术栈标签居中 */
+    .p-tech span { font-size: 0.75rem; color: var(--secondary-color); background: transparent; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(188, 19, 254, 0.2); }
+
+    /* 技能工具箱 */
+    .arsenal-section.glass-panel {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        text-align: center; /* 工具箱居中 */
+    }
+
+    .arsenal-section .panel-title {
+        padding-left: 0;
+        margin-bottom: 25px;
+    }
+
+    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 15px; justify-items: center; } /* 图标居中 */
+    .tool-item {
+        aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+        background: transparent; border-radius: 10px; font-size: 1.5rem; color: #ccc;
+        transition: 0.3s;
+        border: 1px solid rgba(255,255,255,0.05);
+        width: 100%; /* 填满网格 */
+    }
+    .tool-item:hover { background: #fff; color: #000; transform: rotate(10deg); }
+
+    /* 时间轴 */
+    .timeline-section { text-align: center; } /* 时间轴标题居中 */
+    .timeline-box { 
+        position: relative; 
+        padding-left: 0; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; /* 时间轴内容居中 */
+    }
+    .timeline-box::before {
+        content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+        background: linear-gradient(to bottom, var(--primary-color), transparent);
+        transform: translateX(-50%); /* 线条居中 */
+    }
+    .tl-item { 
+        margin-bottom: 35px; 
+        position: relative; 
+        width: 100%; 
+        display: flex; 
+        justify-content: center; 
+    }
+    .tl-dot {
+        position: absolute; left: 50%; top: 0; width: 14px; height: 14px;
+        background: var(--bg-dark); border: none; border-radius: 50%;
+        box-shadow: 0 0 10px var(--primary-color);
+        transform: translateX(-50%);
+        z-index: 2;
+        background: #000;
+        border: 2px solid var(--primary-color);
+    }
+    .tl-content {
+        background: rgba(255,255,255,0.03);
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        width: 80%;
+        text-align: center; /* 内容文字居中 */
+        position: relative;
+        top: 20px; /* 让卡片在点下方 */
+    }
+    .tl-date { font-size: 0.85rem; color: var(--primary-color); font-family: 'Fira Code'; display: block; margin-bottom: 5px; }
+    .tl-item h4 { margin: 5px 0; font-size: 1.1rem; }
+    .tl-item p { margin: 0; color: #888; font-size: 0.95rem; }
+
+    @media (max-width: 900px) {
+        .dashboard-wrapper { grid-template-columns: 1fr; }
+    }
+    @keyframes pulse { 0% { opacity: 0.3; transform: scale(0.95); } 100% { opacity: 0.6; transform: scale(1.05); } }
+
+    /* 覆盖主题原有按钮样式，使其更显眼 */
+    #card-toggle-btn {
+        background: var(--primary-color) !important;
+        color: #000 !important;
+        width: 50px !important;
+        height: 50px !important;
+        border-radius: 50% !important;
+        box-shadow: 0 0 15px var(--primary-color) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 1.5rem !important;
+        transition: all 0.3s ease !important;
+        opacity: 1 !important;
+        z-index: 9999 !important;
+    }
+    #card-toggle-btn:hover {
+        transform: scale(1.1) rotate(90deg) !important;
+        box-shadow: 0 0 25px var(--primary-color) !important;
+        background: #fff !important;
+    }
+
+    /* 搜索框增强 */
+    #search-bar {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border: 2px solid var(--primary-color) !important;
+        color: #fff !important;
+        border-radius: 20px !important;
+        padding: 8px 15px !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.2) !important;
+    }
+    #search-bar:focus {
+        background: rgba(255, 255, 255, 0.2) !important;
+        box-shadow: 0 0 20px var(--primary-color) !important;
+        width: 100% !important; /* 如果布局允许 */
+    }
+    #search-bar::placeholder {
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    /* 文章信息元数据优化 */
+    .info {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0 !important; /* Reset gap for dividers */
+        margin: 15px 0 25px !important;
+        font-family: 'Rajdhani', sans-serif !important;
+        font-size: 1rem !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        width: 100%;
+    }
+    
+    .info > span {
+        display: inline-flex !important;
+        align-items: center !important;
+        padding: 0 18px !important;
+        position: relative !important;
+    }
+
+    /* Vertical Divider */
+    .info > span:not(:last-child)::after {
+        content: '' !important;
+        position: absolute !important;
+        right: 0 !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        height: 14px !important;
+        width: 1px !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .info .icon {
+        color: var(--primary-color) !important;
+        margin-right: 8px !important; /* Increased spacing */
+        font-size: 0.9em !important; /* Slightly adjust icon size */
+        display: inline-flex !important;
+        align-items: center !important;
+    }
+
+    .info a {
+        color: #fff !important;
+        text-decoration: none !important;
+        transition: all 0.3s !important;
+        display: inline-flex !important; /* Align icon and text */
+        align-items: center !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    /* 标签和分类样式 */
+    .info .category a, 
+    .info .tags a {
+        background: transparent !important;
+        padding: 2px 10px !important;
+        border-radius: 6px !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        margin: 0 4px !important;
+    }
+
+    .info .category a:hover, 
+    .info .tags a:hover {
+        background: rgba(0, 243, 255, 0.1) !important;
+        border-color: var(--primary-color) !important;
+        color: var(--primary-color) !important;
+        transform: translateY(-1px) !important;
+    }
+
+    /* --- 新增特效 --- */
+
+    /* 1. 赛博故障文字特效 (Glitch Text) */
+    @keyframes glitch-anim-1 {
+        0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+        20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+        40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+        60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+        80% { clip-path: inset(10% 0 70% 0); transform: translate(-1px, 1px); }
+        100% { clip-path: inset(30% 0 20% 0); transform: translate(1px, -1px); }
+    }
+    @keyframes glitch-anim-2 {
+        0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
+        20% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 2px); }
+        40% { clip-path: inset(30% 0 20% 0); transform: translate(2px, 1px); }
+        60% { clip-path: inset(15% 0 80% 0); transform: translate(-1px, -2px); }
+        80% { clip-path: inset(55% 0 10% 0); transform: translate(1px, 2px); }
+        100% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, 1px); }
+    }
+
+    .glitch-name { position: relative; }
+    .glitch-name::before, .glitch-name::after {
+        content: attr(data-text);
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: transparent;
+    }
+    .glitch-name::before {
+        left: 2px; text-shadow: -1px 0 #ff00c1; clip-path: inset(0 0 0 0);
+        animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        opacity: 0.8;
+    }
+    .glitch-name::after {
+        left: -2px; text-shadow: -1px 0 #00fff9; clip-path: inset(0 0 0 0);
+        animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        opacity: 0.8;
+    }
+
+    /* 2. 全息扫描线 (Holographic Scanline) */
+    .glass-panel::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to bottom, transparent 50%, rgba(0, 243, 255, 0.02) 51%, transparent 52%);
+        background-size: 100% 4px;
+        animation: scanline 8s linear infinite;
+        pointer-events: none;
+        z-index: 1;
+    }
+    @keyframes scanline { 0% { background-position: 0 0; } 100% { background-position: 0 100%; } }
+
+    /* 3. 悬浮呼吸动画 (Floating & Breathing) */
+    .tool-item { animation: float-tools 4s ease-in-out infinite; }
+    .tool-item:nth-child(even) { animation-delay: 2s; }
+    @keyframes float-tools { 
+        0%, 100% { transform: translateY(0); } 
+        50% { transform: translateY(-6px); text-shadow: 0 0 10px var(--primary-color); } 
+    }
+
+    /* 4. 项目卡片流光扫光 (Project Card Shine) */
+    .project-card { position: relative; overflow: hidden; }
+    .project-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: -100%; width: 50%; height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+        transform: skewX(-25deg);
+        transition: 0.5s;
+        pointer-events: none;
+    }
+    .project-card:hover::before { left: 150%; transition: 0.7s; }
+
+    /* 5. 终端光标闪烁 */
+    .prompt::after {
+        content: '_';
+        animation: blink 1s step-end infinite;
+        margin-left: 2px;
+        color: var(--primary-color);
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* 6. 欢迎手势动画增强 */
+    .wave {
+        display: inline-block;
+        animation: wave-hand 2s infinite;
+        transform-origin: 70% 70%;
+    }
+    @keyframes wave-hand {
+        0% { transform: rotate(0deg); }
+        10% { transform: rotate(14deg); }
+        20% { transform: rotate(-8deg); }
+        30% { transform: rotate(14deg); }
+        40% { transform: rotate(-4deg); }
+        50% { transform: rotate(10deg); }
+        60% { transform: rotate(0deg); }
+        100% { transform: rotate(0deg); }
+    }
+
+    /* 7. 统计数字辉光 */
+    .stat-item:hover .count {
+        text-shadow: 0 0 15px var(--primary-color);
+        transform: scale(1.1);
+        transition: 0.3s;
+    }
+
+    /* 8. 技能标签霓虹灯 */
+    .tag:hover {
+        background: rgba(0, 243, 255, 0.1);
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+        border-color: var(--primary-color);
+        color: #fff;
+        transition: 0.3s;
+        cursor: default;
+    }
+</style>
 
 <div class="dashboard-wrapper">
     
+    <!-- 左侧栏 -->
     <aside class="profile-col">
         
         <div class="id-card glass-panel">
-            <div class="card-header-bg"></div>
             <div class="avatar-container">
                 <div class="avatar-glow"></div>
                 <img src="/images/avatar.jpg" class="avatar-main" alt="Avatar">
@@ -183,12 +856,7 @@
             <div class="id-info">
                 <h1 class="glitch-name" data-text="Aimy">Aimy</h1>
                 <p class="role-chip">Full Stack Developer</p>
-                <ul class="meta-list">
-                    <li><i class="fa fa-map-marker-alt"></i> China</li>
-                    <li><i class="fa fa-briefcase"></i> Open to Work</li>
-                    <li><i class="fa fa-birthday-cake"></i> Oct 24th</li>
-                </ul>
-
+                
                 <div class="social-row">
                     <a href="https://github.com/yourname" target="_blank" class="s-btn github"><i class="fa-brands fa-github"></i></a>
                     <a href="#" class="s-btn twitter"><i class="fa-brands fa-twitter"></i></a>
@@ -196,6 +864,12 @@
                     <a href="#" class="s-btn steam"><i class="fa-brands fa-steam"></i></a>
                 </div>
                 
+                <ul class="meta-list">
+                    <li><i class="fa fa-map-marker-alt"></i> China</li>
+                    <li><i class="fa fa-briefcase"></i> Open to Work</li>
+                    <li><i class="fa fa-birthday-cake"></i> Oct 24th</li>
+                </ul>
+
                 <a href="#contact" class="action-btn">
                     <span>Send Message</span>
                     <i class="fa fa-paper-plane"></i>
@@ -229,6 +903,7 @@
 
     </aside>
 
+    <!-- 右侧主内容 -->
     <main class="main-col">
         
         <section class="welcome-section glass-panel">
@@ -382,29 +1057,41 @@
     });
 </script>
 
+
+        </div>
+        
+        
     </div>
     
-    
-</div>
-<div id="card-style">
+    <div id="home-card">
+        <div id="card-style">
   <div id="card-div">
     <div class="card-border"></div>
+
     <div class="card-content">
+      <!-- Avatar -->
       <div class="avatar">
         <img src="/images/avatar.jpg" alt="avatar" />
       </div>
 
+      <!-- Name -->
       <div class="name">aimy</div>
 
+      <!-- Description -->
       <div class="description">比较懒，写的不详细</div>
 
- <div class="article-count">
-  文章数量：16
-</div>
+      <!-- Article Count -->
+      <div class="article-count">
+        文章数量：16
+      </div>
+
+      <!-- Datetime -->
       <div class="datetime" id="datetime-display">加载中...</div>
 
+      <!-- Icon Links -->
       
-
+      
+      <!-- Friend Links -->
       
       <div class="friend-links">
         ——👇实用
@@ -416,85 +1103,102 @@
         <a href="https://dash.cloudflare.com/" target="_blank">cloudflare</a>
         <a href="https://idx.google.com/" target="_blank">Firebase Studio</a>
         <a href="https://theporndude.com/zh" target="_blank">theporndude</a>
+
         ——👇AI🤖
         <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>
         <a href="https://gemini.google.com/app" target="_blank">Gemini</a>
+
         ——👇比较有用的网站
         <a href="https://www.coolexe.com/" target="_blank">Windows滚去这里👋</a>
         <a href="https://www.freecodecamp.org/chinese/news/all-emojis-emoji-list-for-copy-and-paste/" target="_blank">Emoji 表情🥳</a>
         <a href="https://www.kaliorg.com/" target="_blank">Kali中文论坛</a>
-         <a href="https://tool.mkblog.cn/logoly/#/" target="_blank">PornHub 风格 Logo 生成工具</a>
+        <a href="https://tool.mkblog.cn/logoly/#/" target="_blank">PornHub风格 Logo 生成工具</a>
         <a href="https://www.mc.js.cool/" target="_blank">我的世界网页版</a>
       </div>
       
+
+
     </div>
   </div>
 
-<!-- 新增最新文章面板 -->
-<div id="latest-posts-panel" style="margin-top: 20px;">
-  <div class="card-border"></div>
-  <div class="card-content">
-    <div class="name">📚 最新文章</div>
-    <div class="description">看看最近写了什么</div>
+  <!-- 最新文章面板 -->
+  <div id="latest-posts-panel">
+    <div class="card-border"></div>
+    <div class="card-content">
+      <div class="name">📚 最新文章</div>
+      <div class="description">看看最近写了什么</div>
 
-    <ul class="latest-posts-list" style="list-style:none; padding-left:0;">
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/12/26/code%E5%9C%A8wayland%E4%B8%8A%E8%BF%90%E8%A1%8C/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            code在Wayland上运行的方法
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-12-26
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/16/tor%E7%BD%91%E7%AB%99%E7%9A%84%E6%90%AD%E5%BB%BA/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            tor(暗网地址)网站的搭建
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-16
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/12/MariaDB%E7%9A%84%E5%AE%89%E8%A3%85/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            MariaDB的安装（适用于 Arch）
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-12
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/11/Windows%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            📃Windows常用指令
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-11
-          </span>
-        </li>
-      
-        <li style="margin-bottom:8px;">
-          <a href="/2025/06/11/archlinux%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
-            📘Archlinux常用指令
-          </a>
-          <span style="font-size:12px; color:#888; margin-left:10px;">
-            2025-06-11
-          </span>
-        </li>
-      
-    </ul>
+      <ul class="latest-posts-list">
+        
+          <li>
+            <a href="/2025/06/11/Debian%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📕Debian常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/12/MariaDB%E7%9A%84%E5%AE%89%E8%A3%85/" target="_blank">
+              <span class="post-title">MariaDB的安装（适用于 Arch）</span>
+              <span class="post-date">2025-06-12</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/11/Windows%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" target="_blank">
+              <span class="post-title">📃Windows常用指令</span>
+              <span class="post-date">2025-06-11</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/26/code%E5%9C%A8wayland%E4%B8%8A%E8%BF%90%E8%A1%8C/" target="_blank">
+              <span class="post-title">code在Wayland上运行的方法</span>
+              <span class="post-date">2025-12-26</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/2025/06/10/manjaro%E5%85%A5%E9%97%A8/" target="_blank">
+              <span class="post-title">manjaro入门</span>
+              <span class="post-date">2025-06-10</span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
   </div>
 </div>
+
+<!-- 脚本：访问人数 & 网站总运行时间 & 当前时间 -->
+<script>
+  // 当前时间
+  function updateDatetime() {
+    const now = new Date();
+    document.getElementById('datetime-display').innerText = now.toLocaleString();
+  }
+  setInterval(updateDatetime, 1000);
+  updateDatetime();
+</script>
+
+    </div>
+    
 </div>
 
-            <footer id="footer">
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+        <footer id="footer">
   <div id="footer-wrap">
     <div class="footer-row">
       <div class="footer-left">
         <p>
-           &copy; 2022 - 2025 &commat;aimy 
+           &copy; 2022 - 2026 &commat;aimy 
           <span id="footer-icon">
             <i class="fa-solid fa-font-awesome fa-fw"></i>
           </span>
@@ -528,14 +1232,6 @@
   updateDateTime(); // 初始化调用
 </script>
 
-        </div>
-        
-        <transition name="fade">
-            <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
-            </div>
-        </transition>
-        
     </div>
     <script src="/js/main.js"></script>
     
